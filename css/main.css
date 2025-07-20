@@ -1,0 +1,587 @@
+/* css/main.css */
+
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800;900&display=swap');
+/* أضفنا 900 للخط */
+
+/* --- Global Variables --- */
+:root {
+    /* ألوان مستوحاة من الصورة المرفقة (تم تحليلها من الصورة الأصلية) */
+    --primary-color: #F8BBD0;
+    /* زهري فاتح */
+    --secondary-color: #E1BEE7;
+    /* بنفسجي فاتح */
+    --accent-color: #FFC0CB;
+    /* لون زهري أفتح للتمييز */
+
+    --text-color: #555555;
+    /* رمادي متوسط للنصوص */
+    --heading-color: #333333;
+    /* رمادي داكن للعناوين */
+    --light-bg: #fdfdfd;
+    /* خلفية بيضاء ناصعة جداً */
+    --white: #ffffff;
+    --gray: #bbbbbb;
+    /* رمادي أفتح */
+    --border-color: #eeeeee;
+    /* حدود رمادية فاتحة جداً */
+
+    --transition-speed: 0.3s;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    /* ظل خفيف ونظيف */
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+    /* ظل أعمق عند التحويم */
+    --border-radius-sm: 8px;
+    --border-radius-md: 15px;
+    /* زيادة قليلاً */
+    --border-radius-lg: 20px;
+    /* NEW: for cart items and modal */
+    --shadow-strong: 0 10px 40px rgba(0, 0, 0, 0.18);
+    /* NEW: stronger shadow for modal */
+    --primary-color-dark: #D898B0;
+    /* A slightly darker primary for accents */
+}
+
+/* --- Basic Resets & Body Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.7;
+    /* زيادة تباعد الأسطر للراحة */
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    /* خلفية الجسم باللون الأبيض الناصع */
+    direction: rtl;
+    /* لضمان الاتجاه من اليمين لليسار */
+    overflow-x: hidden;
+    /* لمنع شريط التمرير الأفقي */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    /* روابط باللون الزهري */
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    /* تحويل للبنفسجي عند التحويم */
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--heading-color);
+    /* عناوين بالرمادي الداكن */
+    font-weight: 700;
+    /* جعل العناوين أكثر بروزًا */
+}
+
+p {
+    margin-bottom: 1em;
+    /* مسافة افتراضية تحت الفقرات */
+}
+
+/* --- Container --- */
+.container {
+    max-width: 1280px;
+    /* زيادة قليلاً للعرض */
+    margin: 0 auto;
+    padding: 0 25px;
+    /* زيادة المسافة الداخلية */
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    /* حجم أكبر قليلاً */
+    border-radius: var(--border-radius-sm);
+    /* استخدام المتغير */
+    font-weight: 600;
+    /* وزن خط متوسط */
+    text-align: center;
+    transition: all var(--transition-speed) ease;
+    /* كل الانتقالات */
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    /* مسافة بين الحروف */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    /* زر أساسي باللون الزهري */
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    /* تحويل للبنفسجي عند التحويم */
+    transform: translateY(-2px);
+    /* تأثير رفع بسيط */
+    box-shadow: var(--shadow-light);
+    /* ظل عند التحويم */
+}
+
+.btn-secondary {
+    /* زر ثانوي جديد */
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* --- Section Padding --- */
+.section-padding {
+    padding: 80px 0;
+    /* زيادة المسافة الرأسية بين الأقسام */
+}
+
+/* --- Main Header --- */
+.main-header {
+    background-color: var(--white);
+    box-shadow: var(--shadow-light);
+    /* ظل أنعم وأكثر عصرية */
+    padding: 18px 0;
+    /* زيادة ارتفاع الهيدر قليلاً */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    /* حجم أكبر للشعار النصي */
+    font-weight: 800;
+    color: var(--heading-color);
+}
+
+.logo img {
+    height: 45px;
+    /* حجم أكبر للشعار الصوري */
+    margin-inline-end: 12px;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 40px;
+    /* زيادة المسافة بين روابط القائمة الرئيسية */
+}
+
+.main-nav a {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.05em;
+    /* تكبير الخط قليلاً */
+    position: relative;
+    padding-bottom: 8px;
+    /* مسافة أكبر للخط السفلي */
+    transition: color var(--transition-speed) ease;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+    color: var(--primary-color);
+    /* لون زهري عند النشاط أو التحويم */
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    /* سمك أكبر للخط */
+    background-color: var(--primary-color);
+    /* خط زهري */
+    transition: width var(--transition-speed) ease;
+}
+
+.main-nav a.active::after,
+.main-nav a:hover::after {
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    /* مسافة أكبر بين الأيقونات */
+}
+
+.header-icons button,
+.header-icons .cart-icon {
+    background: none;
+    border: none;
+    font-size: 22px;
+    /* حجم أكبر للأيقونات */
+    color: var(--gray);
+    /* لون أيقونات الهيدر */
+    cursor: pointer;
+    position: relative;
+    transition: color var(--transition-speed) ease;
+}
+
+.header-icons button:hover,
+.header-icons .cart-icon:hover {
+    color: var(--primary-color);
+    /* لون زهري عند التحويم */
+}
+
+.cart-icon .cart-count {
+    position: absolute;
+    top: -5px;
+    /* تعديل الموضع */
+    left: -5px;
+    background-color: #e74c3c;
+    /* أحمر واضح */
+    color: var(--white);
+    font-size: 11px;
+    /* حجم أصغر قليلاً للرقم */
+    border-radius: 50%;
+    padding: 1px 5px;
+    min-width: 18px;
+    /* حجم أدنى */
+    text-align: center;
+    display: flex;
+    /* لضمان التوسيط الجيد للرقم */
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    /* ارتفاع مطابق للعرض */
+}
+
+.menu-toggle-btn {
+    display: none;
+    /* مخفي افتراضيا, يظهر في شاشات الجوال */
+}
+
+/* --- Mobile Navigation (القائمة الجانبية) --- */
+.mobile-nav {
+    /* تغييرات هنا لفتح القائمة من اليسار وألوانها */
+    position: fixed;
+    /* تغيير إلى fixed لتبقى ثابتة على الشاشة */
+    top: 0;
+    right: 0;
+    /* ابدأ من اليمين لتتحرك إلى اليسار */
+    height: 100%;
+    /* ارتفاع كامل للشاشة */
+    width: 280px;
+    /* عرض ثابت للقائمة */
+    max-width: 80%;
+    /* لضمان عدم تجاوز الشاشة الصغيرة */
+    background-color: var(--white);
+    /* خلفية بيضاء */
+    padding: 25px 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    /* ظل من اليسار */
+    transform: translateX(100%);
+    /* مخفية في البداية خارج الشاشة لليمين */
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
+    z-index: 9999;
+    /* تأكد أنها فوق كل شيء */
+    display: flex;
+    /* لتحسين محاذاة العناصر الداخلية */
+    flex-direction: column;
+    /* جعل المحتوى عموديًا */
+    align-items: flex-start;
+    /* محاذاة العناصر لليسار */
+}
+
+.mobile-nav.active {
+    transform: translateX(0);
+    /* تظهر بتحريكها إلى الموضع الأصلي */
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* مسافة أكبر بين روابط القائمة الجانبية */
+    width: 100%;
+    /* لجعل الروابط تمتد على كامل عرض القائمة */
+}
+
+.mobile-nav a {
+    color: var(--heading-color);
+    /* لون نص أسود (أو رمادي داكن) */
+    font-weight: 500;
+    font-size: 1.1em;
+    /* حجم خط أكبر */
+    display: block;
+    padding: 12px 15px;
+    /* مسافة داخلية أكبر */
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    text-align: right;
+    /* محاذاة لليمين */
+}
+
+.mobile-nav a:hover {
+    background-color: var(--light-bg);
+    /* لون تحويم أفتح قليلاً */
+    color: var(--primary-color);
+    /* لون زهري عند التحويم */
+}
+
+
+/* --- Main Footer --- */
+.main-footer {
+    background-color: #a49da6;    /* خلفية الفوتر باللون الزهري */
+    color: var(--white);
+    padding: 60px 0 30px;
+    /* مسافة داخلية أكبر */
+    font-size: 15px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* تعديل الأعمدة */
+    gap: 40px;
+    /* مسافة أكبر */
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    color: var(--white);
+    /* عناوين الفوتر باللون الأبيض */
+    font-size: 22px;
+    /* حجم أكبر للعناوين */
+    margin-bottom: 25px;
+    /* مسافة أكبر */
+    position: relative;
+    padding-bottom: 12px;
+    font-weight: 700;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    /* خط أطول قليلاً */
+    height: 3px;
+    /* سمك أكبر */
+    background-color: var(--accent-color);
+    /* خط باللون الزهري الفاتح */
+}
+
+.footer-column p {
+    margin-bottom: 18px;
+    /* مسافة أكبر للفقرات */
+    color: rgba(255, 255, 255, 0.9);
+    /* لون أبيض شفاف قليلاً للوضوح */
+    line-height: 1.8;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.9);
+    /* روابط باللون الأبيض الشفاف */
+    font-size: 1.05em;
+}
+
+.footer-column ul li a:hover {
+    color: var(--white);
+    /* تحويل للأبيض النقي عند التحويم */
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    /* حجم أكبر للأيقونات الاجتماعية */
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    /* شفافية أكبر */
+    color: var(--white);
+    font-size: 20px;
+    margin-inline-end: 12px;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--secondary-color);
+    /* لون بنفسجي أنيق عند التحويم */
+    transform: translateY(-2px);
+}
+
+.footer-column .fas {
+    margin-inline-end: 12px;
+    color: var(--accent-color);
+    /* لون زهري فاتح للأيقونات */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    /* خط أبيض شفاف */
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+}
+
+/* --- Responsive Design (للهاتف) --- */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none;
+        /* إخفاء قائمة الديسكتوب */
+    }
+
+    .menu-toggle-btn {
+        display: block;
+        /* إظهار زر التبديل */
+    }
+
+    .header-content {
+        justify-content: space-between;
+    }
+
+    .header-icons {
+        gap: 20px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+        /* تقليل المسافة قليلاً */
+    }
+
+    .footer-grid {
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .footer-column h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .main-header {
+        padding: 12px 0;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .header-icons button,
+    .header-icons .cart-icon {
+        font-size: 20px;
+    }
+
+    .cart-icon .cart-count {
+        min-width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        /* عمود واحد في الشاشات الأصغر */
+        text-align: center;
+    }
+
+    .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-icons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .social-icons a {
+        margin: 0 8px;
+        /* تباعد أيقونات السوشيال في المنتصف */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-padding {
+        padding: 40px 0;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo img {
+        height: 30px;
+    }
+
+    .header-icons {
+        gap: 10px;
+    }
+
+    .header-icons button,
+    .header-icons .cart-icon {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الحرف اليدوية - جميع المنتجات</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="products-page">
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="شعار المتجر">
+                    <span>Nour Stor</span>
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html" class="active">المنتجات</a></li>
+                        <li><a href="about.html">عن المتجر</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <a href="cart.html" class="cart-icon" aria-label="عربة التسوق">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="menu-toggle-btn" aria-label="قائمة التنقل"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-nav">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="products-listing section-padding">
+            <div class="container">
+                <h1 class="page-title">جميع المنتجات</h1>
+
+                <div class="product-controls">
+                    <div class="search-bar">
+                        <input type="text" id="productSearch" placeholder="ابحث عن منتج...">
+                        <button id="searchButton" aria-label="بحث"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="sort-by">
+                        <label for="sortBy">ترتيب حسب:</label>
+                        <select id="sortBy">
+                            <option value="default">الافتراضي</option>
+                            <option value="price-asc">السعر: من الأقل للأعلى</option>
+                            <option value="price-desc">السعر: من الأعلى للأقل</option>
+                            <option value="name-asc">الاسم: أ-ي</option>
+                            <option value="name-desc">الاسم: ي-أ</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-layout">
+                    <aside class="product-filters">
+                        <div class="filter-section">
+                            <h2>الفئات</h2>
+                            <ul class="category-list">
+                                <li><a href="#" class="filter-btn active" data-category="all">الكل</a></li>
+                                <li><a href="#" class="filter-btn" data-category="ديكورات منزلية">ديكورات منزلية</a></li>
+                                <li><a href="#" class="filter-btn" data-category="إكسسوارات شخصية">إكسسوارات شخصية</a></li>
+                                <li><a href="#" class="filter-btn" data-category="تحف فنية">تحف فنية</a></li>
+                                <li><a href="#" class="filter-btn" data-category="هدايا">هدايا</a></li>
+                                <li><a href="#" class="filter-btn" data-category="أخرى">أخرى</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="filter-section price-filter">
+                            <h2>تصفية حسب السعر</h2>
+                            <input type="range" min="0" max="1000" value="1000" class="slider" id="priceRange">
+                            <p>السعر: 0 - <span id="priceValue">1000</span> جنيه مصري</p>
+                            <button class="btn btn-primary btn-sm apply-price-filter">تطبيق</button>
+                        </div>
+                    </aside>
+
+                    <div class="all-products-grid">
+                        </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column about-col">
+                    <h3>Nour Stor</h3>
+                    <p>وجهتك الأولى للمنتجات اليدوية الفاخرة التي تجمع بين الأصالة والعصرية. نصنع الجمال بين يديك.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="about.html">عن المتجر</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="privacy-policy.html">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 شارع الحرف، مدينة الإبداع، القاهرة، مصر</p>
+                    <p><i class="fas fa-phone-alt"></i> +20 100 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@nourstor.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 متجر الحرف. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script> 
+    <script src="js/data.js"></script> 
+    <script src="js/products.js"></script> 
+</body>
+</html>

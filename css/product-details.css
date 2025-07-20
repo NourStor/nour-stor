@@ -1,0 +1,364 @@
+/* css/product-details.css */
+
+/* إعادة ضبط بعض الأساسيات للصفحة */
+.product-details {
+    padding-top: 50px; /* مسافة علوية مناسبة */
+    padding-bottom: 50px;
+}
+
+/* بطاقة تفاصيل المنتج الرئيسية - محتواها سيتم تعديله في HTML */
+.product-detail-content { /* قمت بتغيير الاسم من .product-detail-card إلى .product-detail-content ليتناسب مع HTML الجديد */
+    display: flex;
+    flex-wrap: wrap; /* للسماح للعناصر بالانتقال لسطر جديد في الشاشات الصغيرة */
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-medium);
+    overflow: hidden;
+    padding: 30px;
+    gap: 40px; /* مسافة بين الصورة والمعلومات */
+    align-items: flex-start; /* محاذاة من الأعلى */
+}
+
+/* قسم الصور - يتكون من الصورة الرئيسية ومعرض الصور المصغرة */
+.product-images {
+    flex: 1 1 500px; /* مرن، ينكمش، يبدأ من 500px */
+    max-width: 50%; /* ضمان عدم تجاوز 50% من العرض */
+    display: flex;
+    flex-direction: column; /* الصورة الرئيسية في الأعلى، ثم الصور المصغرة بالأسفل */
+    gap: 20px;
+}
+
+.main-image {
+    width: 100%;
+    height: 500px; /* ارتفاع ثابت للصورة الكبيرة */
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    background-color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* لإضافة أزرار التنقل */
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* استخدام contain لعرض الصورة كاملة بدلاً من قصها */
+    object-position: center;
+}
+
+/* أزرار التنقل في الصورة الرئيسية */
+.main-image .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: var(--border-radius-sm);
+    z-index: 10;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.main-image .nav-button:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.main-image .nav-button.left {
+    left: 10px;
+}
+
+.main-image .nav-button.right {
+    right: 10px;
+}
+
+/* عداد الصور في الصورة الرئيسية */
+.main-image .image-counter {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9em;
+    z-index: 9;
+}
+
+
+/* قسم الصور المصغرة (thumbnails) */
+.thumbnail-images {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* لجعل الصور المصغرة قابلة للتمرير أفقيًا */
+    padding-bottom: 5px; /* مسافة للظل أو شريط التمرير */
+    scroll-behavior: smooth; /* تمرير سلس */
+    scrollbar-width: thin; /* لمتصفحات فايرفوكس */
+    scrollbar-color: var(--primary-color) var(--light-bg); /* لمتصفحات فايرفوكس */
+}
+
+/* تنسيق شريط التمرير في الويب كيت (كروم، سفاري) */
+.thumbnail-images::-webkit-scrollbar {
+    height: 8px; /* ارتفاع شريط التمرير الأفقي */
+}
+
+.thumbnail-images::-webkit-scrollbar-track {
+    background: var(--light-bg); /* لون خلفية شريط التمرير */
+    border-radius: 10px;
+}
+
+.thumbnail-images::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color); /* لون مقبض شريط التمرير */
+    border-radius: 10px;
+    border: 2px solid var(--light-bg);
+}
+
+.thumbnail-images img {
+    width: 100px; /* حجم ثابت للصور المصغرة */
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.thumbnail-images img:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px); /* تأثير رفع بسيط عند التحويم */
+}
+
+.thumbnail-images img.active {
+    border-color: var(--primary-color); /* إطار مميز للصورة النشطة */
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.3); /* ظل حول الصورة النشطة */
+}
+
+
+/* قسم معلومات المنتج */
+.product-info {
+    flex: 1 1 400px; /* مرن، ينكمش، يبدأ من 400px */
+    padding: 20px 0;
+}
+
+.product-info h1 { /* استخدام h1 للنص الأساسي في HTML */
+    font-size: 2.8em;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.product-info .product-category { /* تم تغيير .category إلى .product-category ليتطابق مع HTML */
+    font-size: 1.1em;
+    color: var(--gray);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.product-info .product-price { /* تم تغيير .price إلى .product-price ليتطابق مع HTML */
+    font-size: 2.5em;
+    color: var(--primary-color);
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.product-info .product-description { /* تم تغيير .description إلى .product-description ليتطابق مع HTML */
+    font-size: 1.1em;
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* جزء التحكم بالكمية وزر الإضافة للسلة */
+.quantity-control { /* هذا الجزء تم نقله من product-detail-actions ليصبح جزءًا من product-info */
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    width: fit-content; /* لجعل العرض مناسبًا للمحتوى */
+    margin-bottom: 20px; /* مسافة بين الكمية وزر الإضافة */
+}
+
+.quantity-control button {
+    background-color: var(--light-bg);
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: background-color var(--transition-speed) ease;
+}
+
+.quantity-control button:hover {
+    background-color: var(--border-color);
+}
+
+.quantity-control input[type="number"] { /* استخدام input بدلاً من span للكمية */
+    padding: 10px 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--heading-color);
+    width: 60px; /* عرض ثابت لحقل الكمية */
+    text-align: center;
+    border: none;
+    -moz-appearance: textfield; /* لإزالة أسهم المتصفحات في فايرفوكس */
+}
+
+/* إزالة أسهم الزيادة/النقصان من حقل النوع number في الويب كيت (كروم، سفاري) */
+.quantity-control input[type="number"]::-webkit-outer-spin-button,
+.quantity-control input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* زر إضافة للسلة للصفحة التفصيلية */
+.btn-add-to-cart-detail { /* كلاس جديد لزر الإضافة هنا */
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border-radius: 50px; /* زر بيضاوي */
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease; /* إضافة انتقال لزر الإضافة */
+}
+.btn-add-to-cart-detail:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+/* حالة زر "تمت الإضافة" */
+.btn-add-to-cart-detail.added-to-cart {
+    background-color: #4CAF50; /* لون أخضر جميل */
+    color: white; /* نص أبيض */
+    cursor: default; /* لجعل المؤشر لا يشير إلى رابط */
+    opacity: 0.8; /* لتميزه قليلاً */
+    pointer-events: none; /* لمنع النقر عليه مرة أخرى بينما هو في حالة "تمت الإضافة" */
+}
+
+/* رسائل التحميل/الخطأ */
+.loading-message, .product-not-found {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--gray);
+    padding: 50px 0;
+    display: none; /* يتم التحكم في عرضها بواسطة JS */
+}
+
+.product-not-found .btn-primary {
+    margin-top: 20px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .product-detail-content {
+        flex-direction: column; /* جعل الصورة والمعلومات فوق بعض في التابلت */
+        align-items: center;
+        padding: 25px;
+        gap: 30px;
+    }
+    .product-images {
+        max-width: 80%; /* زيادة عرض قسم الصور */
+        width: 100%; /* ضمان أخذ العرض الكامل المتاح في flex item */
+    }
+    .main-image {
+        height: 400px;
+    }
+    .product-info {
+        max-width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+    .product-info h1 {
+        font-size: 2.2em;
+    }
+    .product-info .product-price {
+        font-size: 2em;
+    }
+    .product-info .product-description {
+        font-size: 1em;
+    }
+    .quantity-control {
+        margin: 0 auto 20px auto; /* توسيط عنصر الكمية */
+    }
+    .btn-add-to-cart-detail {
+        width: 100%; /* الزر يأخذ العرض الكامل */
+        max-width: 300px; /* لتقييد عرضه */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-details {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .product-detail-content {
+        padding: 20px;
+        gap: 25px;
+    }
+    .product-images {
+        max-width: 90%;
+    }
+    .main-image {
+        height: 350px;
+    }
+    .thumbnail-images img {
+        width: 80px;
+        height: 80px;
+    }
+    .product-info h1 {
+        font-size: 1.8em;
+    }
+    .product-info .product-price {
+        font-size: 1.8em;
+    }
+    .product-info .product-description {
+        font-size: 0.95em;
+        margin-bottom: 30px;
+    }
+    .btn-add-to-cart-detail {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-detail-content {
+        padding: 15px;
+        gap: 20px;
+    }
+    .product-images {
+        max-width: 100%;
+    }
+    .main-image {
+        height: 280px;
+    }
+    .thumbnail-images img {
+        width: 70px;
+        height: 70px;
+    }
+    .product-info h1 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    .product-info .product-price {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+    }
+    .product-info .product-description {
+        font-size: 0.9em;
+        margin-bottom: 25px;
+    }
+    .btn-add-to-cart-detail {
+        width: 100%;
+        max-width: none;
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}

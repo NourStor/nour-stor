@@ -1,0 +1,634 @@
+/* css/index.css */
+
+/*
+   تأكد أن المتغيرات الأساسية مثل:
+   --white, --heading-color, --text-color, --light-bg,
+   --border-radius-sm, --border-radius-md,
+   --shadow-light, --shadow-medium, --transition-speed
+   مُعرفة في ملف css/main.css أو أضفها هنا في :root
+*/
+
+:root {
+    /* ألوان مستوحاة من الصورة المرفقة */
+    --primary-color: #F8BBD0; /* زهري فاتح */
+    --accent-color: #E1BEE7; /* بنفسجي فاتح */
+    --secondary-color: #e74c3c; /* لون مميز للأسهم (أحمر مثلاً) */
+    
+    /* متغيرات عامة (يمكن أن تكون في main.css أيضاً) */
+    --white: #ffffff;
+    --heading-color: #333333;
+    --text-color: #555555;
+    --light-bg: #f9f9f9;
+    --border-radius-sm: 8px; /* زيادة قليلاً */
+    --border-radius-md: 15px; /* زيادة قليلاً */
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08); /* ظل أوضح قليلاً */
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15); /* ظل أوضح عند التحويم */
+    --transition-speed: 0.3s ease-in-out;
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    background: url('../images/hero.jpg') no-repeat center center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 120px 0; /* مسافة داخلية أكبر */
+    position: relative;
+    z-index: 1; /* لضمان ظهور المحتوى فوق الخلفية */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* طبقة داكنة لزيادة وضوح النص */
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-size: 4.5em; /* حجم خط أكبر للعنوان الرئيسي */
+    margin-bottom: 25px;
+    line-height: 1.2;
+    font-weight: 900; /* خط ثقيل جداً */
+    color: var(--white); /* تأكيد لون النص الأبيض */
+}
+
+.hero-content p {
+    font-size: 1.4em; /* حجم خط أكبر للفقرة */
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9); /* لون أبيض شفاف قليلاً */
+}
+
+.hero-content .btn {
+    font-size: 1.2em; /* زر أكبر وأبرز */
+    padding: 15px 40px;
+    border-radius: 50px; /* زر بيضاوي */
+    background-color: var(--accent-color); /* لون بنفسجي مميز */
+    color: var(--heading-color); /* لون نص داكن على البنفسجي */
+    font-weight: 800; /* خط ثقيل */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* ظل واضح */
+}
+
+.hero-content .btn:hover {
+    background-color: #B29ACC; /* درجة أغمق قليلاً من البنفسجي */
+    transform: translateY(-4px); /* رفع أكثر عند التحويم */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Section Titles (General for home page sections) --- */
+.section-title {
+    font-size: 3.2em; /* حجم خط كبير للعناوين */
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 60px; /* مسافة أكبر أسفل العنوان */
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 800;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* خط أطول تحت العنوان */
+    height: 5px; /* سمك أكبر للخط */
+    background-color: var(--primary-color); /* استخدام اللون الزهري */
+    border-radius: 3px;
+}
+
+/* --- General Scrollable Section Wrapper --- */
+/* هذه الحاوية ستضم العنوان، شبكة العناصر، وأزرار التمرير */
+.scrollable-section-wrapper {
+    position: relative; /* لتحديد موضع الأسهم */
+    margin-bottom: 60px; /* مسافة أسفل القسم */
+}
+
+.scroll-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 50%; /* لتوسيطها عمودياً */
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 0 20px; /* مسافة من الجوانب */
+    pointer-events: none; /* لتسمح بالضغط على العناصر خلفها */
+    z-index: 10;
+}
+
+.scroll-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: var(--secondary-color); /* لون الأيقونة */
+    cursor: pointer;
+    box-shadow: var(--shadow-light);
+    transition: all var(--transition-speed);
+    pointer-events: auto; /* لتمكين الضغط عليها */
+    opacity: 0.8; /* شفافية بسيطة */
+}
+
+.scroll-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-50%) scale(1.1); /* تأثير تكبير بسيط مع الحفاظ على التوسيط */
+    opacity: 1;
+}
+
+/* إخفاء الأزرار على سطح المكتب */
+@media (min-width: 769px) {
+    .scroll-buttons {
+        display: none;
+    }
+}
+
+
+/* --- Featured Categories Section --- */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* تقليل المسافة قليلاً */
+}
+
+.category-card {
+    position: relative;
+    aspect-ratio: 1 / 1; /* نسبة العرض إلى الارتفاع 1:1 لجعلها مربعة */
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    display: flex;
+    align-items: center; /* توسيط عمودي */
+    justify-content: center; /* توسيط أفقي */
+    box-shadow: var(--shadow-light);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background-size: cover; /* لتغطية الحاوية */
+    background-position: center;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1); /* طبقة بيضاء شفافة قليلاً */
+    z-index: 1;
+    transition: background-color 0.4s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-10px); /* تأثير رفع أوضح */
+    box-shadow: var(--shadow-medium);
+}
+
+.category-card:hover::before {
+    background-color: rgba(255, 255, 255, 0.3); /* زيادة الشفافية عند التحويم */
+}
+
+/* Background images for categories - تأكد من مسارات هذه الصور */
+.category-1 { background-image: url('../images/WhatsApp Image 2025-07-20 at 06.30.07_de13e288.jpg'); }
+.category-2 { background-image: url('../images/WhatsApp Image 2025-07-20 at 06.30.07_cfa0d152.jpg'); }
+.category-3 { background-image: url('../images/WhatsApp Image 2025-07-20 at 06.30.06_e2452050.jpg'); }
+
+
+.category-overlay {
+    position: relative;
+    z-index: 2;
+    color: var(--heading-color); /* استخدام لون أغمق للنص */
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.7); /* خلفية بيضاء شفافة للنص */
+    border-radius: var(--border-radius-sm);
+    /* توسيط عمودي وأفقي في حالة عدم وجود align-items:center في .category-card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* لجعلها تملأ البطاقة */
+}
+
+.category-overlay h3 {
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-bottom: 0;
+    text-shadow: none; /* إزالة ظل النص */
+}
+
+/* --- Featured Products Section (جديد أو معدّل) --- */
+/* قم بتطبيق نفس أنماط التمرير الأفقي هنا */
+.featured-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* يمكن تعديل minmax */
+    gap: 20px;
+    /* أضف أنماط البطاقات الخاصة بمنتجاتك هنا، مثل .product-card */
+}
+
+.product-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-light);
+    padding: 15px;
+    text-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 200px; /* ارتفاع ثابت للصور */
+    object-fit: cover; /* لضمان تغطية الصورة للمساحة */
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 10px;
+}
+
+.product-card h4 {
+    color: var(--heading-color);
+    font-size: 1.3em;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    color: var(--text-color);
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.product-card .price {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+
+
+/* --- Info Sections --- */
+.info-sections {
+    background-color: var(--white); /* خلفية بيضاء لتميز القسم */
+    padding: 60px 0; /* مسافة داخلية */
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 أعمدة أو أقل حسب الشاشة */
+    gap: 20px; /* المسافة بين البطاقات */
+    text-align: center;
+}
+
+.info-card {
+    background-color: var(--white); /* خلفية البطاقة بيضاء */
+    border-radius: var(--border-radius-md);
+    padding: 20px;
+    box-shadow: var(--shadow-light);
+    transition: all var(--transition-speed) ease;
+    display: flex; /* لترتيب المحتوى عمودياً */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* محاذاة العناصر من الأعلى */
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.info-card-title {
+    color: var(--heading-color);
+    font-size: 1.5em; /* حجم أكبر للعناوين */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.info-card img {
+    max-width: 100%;
+    aspect-ratio: 1 / 1; /* لجعل الصور مربعة */
+    object-fit: cover; /* لضمان تغطية الصورة للمساحة دون تشويه */
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.info-card p {
+    color: var(--text-color);
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 0; /* لا مسافة سفلية إضافية للفقرة الأخيرة */
+}
+
+/* --- About Us Short Section --- */
+.about-short {
+    background-color: var(--white);
+    padding: 100px 0; /* مسافة داخلية أكبر */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* مسافة أكبر بين الصورة والنص */
+    flex-wrap: wrap; /* للسماح للعناصر بالانتقال لسطر جديد */
+}
+
+.about-image {
+    flex: 1 1 400px; /* مرن، ينكمش، يبدأ من 400px */
+    max-width: 50%;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-medium);
+    aspect-ratio: 1 / 1; /* لجعل الصورة مربعة */
+    object-fit: cover; /* لملء الحاوية */
+}
+
+.about-text {
+    flex: 1 1 400px; /* مرن، ينكمش، يبدأ من 400px */
+}
+
+.about-text .section-title {
+    text-align: start; /* محاذاة لليمين */
+    margin-right: 0;
+    margin-bottom: 30px;
+}
+.about-text .section-title::after {
+    left: auto;
+    right: 0;
+    transform: none; /* إزالة التحويل */
+}
+
+.about-text p {
+    font-size: 1.1em;
+    line-height: 1.9; /* زيادة تباعد الأسطر */
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.about-text .btn {
+    margin-top: 15px;
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+    background-color: var(--light-bg); /* خلفية فاتحة للقسم */
+    padding: 100px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    padding: 30px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.testimonial-card .quote-icon {
+    font-size: 2.5em;
+    color: var(--primary-color); /* لون الأيقونة */
+    margin-bottom: 20px;
+}
+
+.testimonial-card p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    font-style: italic; /* لجعل النص مائلاً */
+}
+
+.reviewer-info h4 {
+    font-size: 1.2em;
+    color: var(--heading-color);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.reviewer-info span {
+    font-size: 0.9em;
+    color: var(--primary-color); /* لون الوصف */
+    display: block; /* ليكون في سطر منفصل */
+}
+
+/* --- Responsive Adjustments for Home Page --- */
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 90px 0;
+    }
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+    .hero-content .btn {
+        font-size: 1.1em;
+        padding: 12px 30px;
+    }
+
+    .section-title {
+        font-size: 2.8em;
+        margin-bottom: 50px;
+    }
+    .section-padding {
+        padding: 80px 0;
+    }
+
+    .category-card {
+        padding: 15px; /* تقليل البادينغ */
+    }
+    .category-overlay h3 {
+        font-size: 1.8em;
+    }
+
+    .about-short {
+        padding: 80px 0;
+    }
+    .about-content {
+        flex-direction: column; /* جعل الصورة والنص فوق بعض */
+        text-align: center;
+        gap: 30px;
+    }
+    .about-image {
+        max-width: 80%; /* زيادة عرض الصورة */
+    }
+    .about-text {
+        max-width: 100%;
+    }
+    .about-text .section-title {
+        text-align: center;
+    }
+    .about-text .section-title::after {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* تعديل للعرض الأقل */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 70px 0;
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+    .hero-content .btn {
+        padding: 10px 25px;
+        font-size: 1em;
+    }
+
+    .section-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    /* أنماط مشتركة للأقسام القابلة للتمرير على الموبايل */
+    .categories-grid,
+    .featured-products-grid { /* طبق نفس الأنماط على المنتجات الرائجة */
+        display: flex; /* تحويل إلى فليكس بوكس */
+        overflow-x: auto; /* تمكين التمرير الأفقي */
+        -webkit-overflow-scrolling: touch; /* لتحسين التمرير على iOS */
+        scroll-snap-type: x mandatory; /* لجعل البطاقات تلتصق عند التمرير */
+        justify-content: flex-start; /* محاذاة البداية لتسهيل التمرير */
+        padding-bottom: 15px; /* مسافة للظل أو شريط التمرير */
+        padding-inline-start: 15px; /* مسافة بادئة من اليمين للحاوية */
+        padding-inline-end: 15px; /* مسافة بادئة من اليسار للحاوية */
+    }
+
+    .categories-grid::-webkit-scrollbar,
+    .featured-products-grid::-webkit-scrollbar {
+        display: none; /* إخفاء شريط التمرير في المتصفحات المستندة إلى WebKit */
+    }
+
+    .category-card,
+    .product-card { /* طبق نفس الأنماط على بطاقات المنتجات */
+        flex: 0 0 auto; /* منع البطاقات من الانكماش والتوسع */
+        width: 80%; /* تحديد عرض البطاقة لتظهر بطاقة ونصف مثلاً */
+        max-width: 300px; /* ضمان عدم تجاوز عرض معين */
+        margin-inline-end: 20px; /* مسافة بين البطاقات */
+        scroll-snap-align: center; /* توسيط البطاقة عند التمرير */
+    }
+    /* لإزالة الهامش الأخير في كل قائمة تمرير */
+    .categories-grid .category-card:last-child,
+    .featured-products-grid .product-card:last-child {
+        margin-inline-end: 0;
+    }
+
+    /* لجعل البطاقة الأولى تظهر في المنتصف تقريباً عند التحميل */
+    .categories-grid::before,
+    .featured-products-grid::before {
+        content: '';
+        flex: 0 0 calc(50% - (80% / 2)); /* يحسب المسافة لجعل العنصر الأول في المنتصف */
+        margin-right: 0; /* تأكد من عدم وجود تداخل */
+        order: -1; /* لضمان ظهور العنصر الوهمي في البداية */
+    }
+
+    .categories-grid::after,
+    .featured-products-grid::after {
+        content: '';
+        flex: 0 0 calc(50% - (80% / 2)); /* نفس المسافة للطرف الآخر */
+        margin-left: 0; /* تأكد من عدم وجود تداخل */
+    }
+    
+
+    .category-overlay h3 {
+        font-size: 1.6em;
+    }
+
+    /* باقي التعديلات كما هي */
+    .testimonials-grid,
+    .info-grid {
+        grid-template-columns: 1fr; /* عمود واحد في الشاشات الأصغر */
+    }
+    .about-short {
+        padding: 60px 0;
+    }
+    .about-image {
+        max-width: 90%;
+    }
+    .about-text p {
+        font-size: 0.95em;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 50px 0;
+    }
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 0.9em;
+    }
+    .hero-content .btn {
+        padding: 8px 20px;
+        font-size: 0.9em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .section-padding {
+        padding: 40px 0;
+    }
+
+    .about-image {
+        max-width: 100%;
+    }
+    
+    /* تعديل إضافي لعرض البطاقات على شاشات أصغر جداً */
+    .category-card,
+    .product-card {
+        width: 90%; /* زيادة عرض البطاقة لتناسب الشاشات الأصغر */
+    }
+    /* تعديل حساب المسافة الوهمية لشاشات 480px */
+    .categories-grid::before,
+    .featured-products-grid::before {
+        flex: 0 0 calc(50% - (90% / 2)); /* يحسب المسافة لجعل العنصر الأول في المنتصف بناءً على 90% */
+    }
+
+    .categories-grid::after,
+    .featured-products-grid::after {
+        flex: 0 0 calc(50% - (90% / 2));
+    }
+}

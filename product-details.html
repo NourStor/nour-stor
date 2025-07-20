@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج - Nour Stor</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/product-details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="product-details-page">
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="شعار المتجر">
+                    <span>Nour Stor</span>
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="about.html">عن المتجر</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <a href="cart.html" class="cart-icon" aria-label="عربة التسوق">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="menu-toggle-btn" aria-label="قائمة التنقل"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-nav">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-details section-padding">
+            <div class="container" id="product-detail-container">
+                <p class="loading-message">جاري تحميل تفاصيل المنتج...</p>
+                
+                <div class="product-detail-content" style="display: none;">
+                    <div class="product-images">
+                        <div class="main-image">
+                            <img src="" alt="صورة المنتج الرئيسية" id="mainProductImage">
+                            <button class="nav-button left" id="prevImageBtn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="nav-button right" id="nextImageBtn"><i class="fas fa-chevron-right"></i></button>
+                            <div class="image-counter" id="imageCounter"></div>
+                        </div>
+                        <div class="thumbnail-images" id="thumbnailImages">
+                            </div>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">الفئة: <span id="productCategory"></span></p>
+                        <h1 id="productName"></h1>
+                        <p class="product-price">السعر: <span id="productPrice"></span> جنيه مصري</p>
+                        <p class="product-description" id="productDescription"></p>
+                        
+                        <div class="quantity-control">
+                            <button id="decreaseQuantity">-</button>
+                            <input type="number" id="productQuantity" value="1" min="1" readonly>
+                            <button id="increaseQuantity">+</button>
+                        </div>
+                        <button class="btn btn-primary btn-add-to-cart-detail" data-id="">إضافة للسلة</button>
+                    </div>
+                </div>
+
+                <div class="product-not-found" style="display: none;">
+                    <h2>عذراً، المنتج غير موجود.</h2>
+                    <p>يبدو أن المنتج الذي تبحث عنه قد لا يكون متاحًا أو تم نقله.</p>
+                    <a href="products.html" class="btn btn-primary">العودة إلى المنتجات</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column about-col">
+                    <h3>Nour Stor</h3>
+                    <p>وجهتك الأولى للمنتجات اليدوية الفاخرة التي تجمع بين الأصالة والعصرية. نصنع الجمال بين يديك.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="about.html">عن المتجر</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="privacy-policy.html">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 شارع الحرف، مدينة الإبداع، القاهرة، مصر</p>
+                    <p><i class="fas fa-phone-alt"></i> +20 100 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@nourstor.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 متجر الحرف. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script> 
+    <script src="js/data.js"></script> 
+    <script src="js/product-details.js"></script> 
+</body>
+</html>

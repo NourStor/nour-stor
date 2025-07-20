@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الحرف اليدوية - Nour Stor</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="./images/Logo.png" alt="شعار المتجر"> 
+                    <span>Nour Stor</span>
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="about.html">عن المتجر</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <a href="cart.html" class="cart-icon" aria-label="عربة التسوق">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="menu-toggle-btn" aria-label="قائمة التنقل"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-nav">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="about.html">عن المتجر</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>جمال الحرف اليدوية بين يديك</h1>
+                    <p>اكتشف مجموعتنا الفريدة من المنتجات المصنوعة بحب وشغف لتعكس ذوقك الرفيع.</p>
+                    <a href="products.html" class="btn btn-primary">اكتشف منتجاتنا</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-categories section-padding">
+            <div class="container">
+                <h2 class="section-title">فئات مميزة</h2>
+                <div class="scrollable-section-wrapper">
+                    <div class="categories-grid">
+                        <a href="#" class="category-card category-1" style="background-image: url('./images/WhatsApp Image 2025-07-20 at 06.30.07_de13e288.jpg');">
+                            <div class="category-overlay">
+                                <h3>ديكورات منزلية</h3>
+                            </div>
+                        </a>
+                        <a href="#" class="category-card category-2" style="background-image: url('./images/WhatsApp Image 2025-07-20 at 06.30.07_cfa0d152.jpg');">
+                            <div class="category-overlay">
+                                <h3>إكسسوارات شخصية</h3>
+                            </div>
+                        </a>
+                        <a href="#" class="category-card category-3" style="background-image: url('./images/WhatsApp Image 2025-07-20 at 06.30.06_e2452050.jpg');">
+                            <div class="category-overlay">
+                                <h3>تحف فنية</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="scroll-buttons">
+                        <button class="scroll-button scroll-left" onclick="scrollContent(this, 'right')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <button class="scroll-button scroll-right" onclick="scrollContent(this, 'left')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-sections section-padding">
+            <div class="container info-grid">
+                
+                <a href="products.html" class="info-card">
+                    <h3 class="info-card-title">منتجات رائجة</h3>
+                    <img src="./images/WhatsApp Image 2025-07-20 at 06.30.07_de13e288.jpg" alt="Trending Now">
+                    <p>اكتشف أحدث وأكثر المنتجات مبيعًا التي يفضلها عملاؤنا.</p>
+                </a>
+                <div class="info-card">
+                    <h3 class="info-card-title">اختيارات المحررين</h3>
+                    <img src="./images/WhatsApp Image 2025-07-20 at 06.30.07_cfa0d152.jpg" alt="Editor's Picks">
+                    <p>مجموعة مختارة بعناية من فريقنا لأبرز وأميز الحرف اليدوية.</p>
+                </div>
+                <div class="info-card">
+                    <h3 class="info-card-title">عروض الموسم</h3>
+                    <img src="./images/WhatsApp Image 2025-07-20 at 06.30.06_e2452050.jpg" alt="Seasonal Sales">
+                    <p>لا تفوتوا عروضنا الخاصة والمحدودة بمناسبة الموسم الحالي.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-short section-padding">
+            <div class="container">
+                <div class="about-content">
+                    <img src="./images/WhatsApp Image 2025-07-20 at 06.30.06_c3520f3e.jpg" alt="عن متجرنا" class="about-image">
+                    <div class="about-text">
+                        <h2 class="section-title">عن متجر Nour Stor</h2>
+                        <p>نحن في Nour Stor نؤمن بقيمة الحرف اليدوية وأهميتها في الحفاظ على التراث وإضافة لمسة من الأصالة إلى حياتنا العصرية. نقدم لكم مجموعة مختارة بعناية من أجود المنتجات المصنوعة يدويًا، كل قطعة منها تروي قصة فريدة من الإبداع والمهارة.</p>
+                        <p>منذ عام 2020، التزمنا بتقديم منتجات عالية الجودة تدعم الحرفيين المحليين وتصل بجمال الصناعة اليدوية إلى كل بيت. اكتشفوا معنا الشغف والدقة في كل تفصيل.</p>
+                        <a href="about.html" class="btn btn-secondary">اقرأ المزيد عنا</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column about-col">
+                    <h3>Nour Stor</h3>
+                    <p>وجهتك الأولى للمنتجات اليدوية الفاخرة التي تجمع بين الأصالة والعصرية. نصنع الجمال بين يديك.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="about.html">عن المتجر</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="privacy-policy.html">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 شارع الحرف، مدينة الإبداع، القاهرة، مصر</p>
+                    <p><i class="fas fa-phone-alt"></i> +20 100 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@nourstor.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 متجر الحرف. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script> 
+    <script src="js/index.js"></script> 
+    <script>
+        function scrollContent(button, direction) {
+            const wrapper = button.closest('.scrollable-section-wrapper');
+            if (!wrapper) return;
+
+            const scrollableContent = wrapper.querySelector('.categories-grid, .featured-products-grid');
+            if (!scrollableContent) return;
+
+            const scrollAmount = scrollableContent.offsetWidth * 0.8; 
+
+            if (direction === 'left') {
+                scrollableContent.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else if (direction === 'right') {
+                scrollableContent.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
