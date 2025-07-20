@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر الحرف اليدوية - جميع المنتجات</title>
+    <title>Nour Stor - جميع المنتجات</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/products.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/products.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="products-page">
     <header class="main-header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="./images/Logo.png" alt="شعار المتجر">
+                <a href="index.html" class="logo" aria-label="الرئيسية - شعار متجر Nour Stor">
+                    <img src="./images/Logo.png" alt="شعار متجر Nour Stor"> 
                     <span>Nour Stor</span>
                 </a>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html" class="active">المنتجات</a></li>
-
-                    </ul>
+                        <li><a href="./index.html" class="active">الرئيسية</a></li>
+                        <li><a href="./products.html">المنتجات</a></li>
+                        <li><a href="./about.html">عنا</a></li> 
                 </nav>
                 <div class="header-icons">
                     <a href="cart.html" class="cart-icon" aria-label="عربة التسوق">
@@ -33,20 +31,45 @@
                 </div>
             </div>
         </div>
-        <div class="mobile-nav">
-            <ul>
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="products.html">المنتجات</a></li>
-
-            </ul>
-        </div>
     </header>
+        <div class="overlay"></div>
+        <nav class="mobile-nav">
+        <button class="mobile-nav-close-btn" aria-label="إغلاق القائمة">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html" class="logo mobile-nav-logo" aria-label="الرئيسية - شعار متجر Nour Stor">
+            <img src="./images/Logo.png" alt="شعار متجر Nour Stor"> 
+            <span>Nour Stor</span>
+        </a>
+        <ul>
+            <li><a href="index.html" class="active">الرئيسية</a></li>
+            <li><a href="products.html">المنتجات</a></li>
+            <li><a href="#">عنا</a></li>
+            <li><a href="#">اتصل بنا</a></li>
+        </ul>
+        <div class="bottom-links">
+            <h3>تابعنا</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/groups/6310617595672327/?ref=share&mibextid=NSMWBT" target="_blank" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@nour._14?_t=ZS-8yBhwoUbvi3&_r=1" target="_blank" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/noor551mohamed?igsh=YzljYTk1ODg3Zg==‎‏" target="_blank" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://chat.whatsapp.com/H8qPRlrgfFv5qUt9Rj49Ru?mode=r_c" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </nav>
 
     <main>
+        <section class="products-hero-section">
+            <div class="container">
+                <div class="products-hero-content">
+                    <h1>جميع المنتجات</h1>
+                    <p>اكتشف مجموعتنا الواسعة من المنتجات اليدوية الفريدة المصممة بعناية وشغف.</p>
+                </div>
+            </div>
+        </section>
+
         <section class="products-listing section-padding">
             <div class="container">
-                <h1 class="page-title">جميع المنتجات</h1>
-
                 <div class="product-controls">
                     <div class="search-bar">
                         <input type="text" id="productSearch" placeholder="ابحث عن منتج...">
@@ -66,17 +89,17 @@
 
                 <div class="products-layout">
                     <aside class="product-filters">
-                       <div class="filter-section">
-                        <h2>الفئات</h2>
-                        <ul class="category-list">
-                            <li><a href="#" class="filter-btn active" data-category="all">الكل</a></li>
-                            <li><a href="#" class="filter-btn" data-category="شنط خرز يدوية">شنط خرز يدوية</a></li>
-                            <li><a href="#" class="filter-btn" data-category="إكسسوارات خرز متنوعة">إكسسوارات خرز متنوعة</a></li>
-                            <li><a href="#" class="filter-btn" data-category="ديكورات منزلية">ديكورات منزلية</a></li>
-                            <li><a href="#" class="filter-btn" data-category="شوكار خرز أنيقة">شوكار خرز أنيقة</a></li>
-                            <li><a href="#" class="filter-btn" data-category="سبح خرز فاخرة">سبح خرز فاخرة</a></li>
-                        </ul>
-                    </div>
+                        <div class="filter-section">
+                            <h2>الفئات</h2>
+                            <ul class="category-list">
+                                <li><a href="#" class="filter-btn active" data-category="all">الكل</a></li>
+                                <li><a href="#" class="filter-btn" data-category="شنط خرز يدوية">شنط خرز يدوية</a></li>
+                                <li><a href="#" class="filter-btn" data-category="إكسسوارات خرز متنوعة">إكسسوارات خرز متنوعة</a></li>
+                                <li><a href="#" class="filter-btn" data-category="ديكورات منزلية">ديكورات منزلية</a></li>
+                                <li><a href="#" class="filter-btn" data-category="شوكار خرز أنيقة">شوكار خرز أنيقة</a></li>
+                                <li><a href="#" class="filter-btn" data-category="سبح خرز فاخرة">سبح خرز فاخرة</a></li>
+                            </ul>
+                        </div>
 
                         <div class="filter-section price-filter">
                             <h2>تصفية حسب السعر</h2>
@@ -93,7 +116,7 @@
         </section>
     </main>
 
-        <footer class="main-footer">
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column about-col">
@@ -109,12 +132,13 @@
                 <div class="footer-column">
                     <h3>روابط سريعة</h3>
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="./index.html" class="active">الرئيسية</a></li>
+                        <li><a href="./products.html">المنتجات</a></li>
+                        <li><a href="./about.html">عنا</a></li> 
 
-                    </ul>
+                        </ul>
                 </div>
-                    <div class="footer-column">
+                <div class="footer-column">
                     <h3>تواصل معنا</h3>
                     <p><i class="fas fa-phone-alt"></i> +201014750878</p>
                 </div>
@@ -128,5 +152,30 @@
     <script src="js/main.js"></script> 
     <script src="js/data.js"></script> 
     <script src="js/products.js"></script> 
+    <script>
+                document.addEventListener('DOMContentLoaded', () => {
+            const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const closeNavBtn = document.querySelector('.mobile-nav-close-btn');
+            const overlay = document.querySelector('.overlay');
+
+            if (menuToggleBtn && mobileNav && closeNavBtn && overlay) {
+                menuToggleBtn.addEventListener('click', () => {
+                    mobileNav.classList.add('active');
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // لمنع التمرير عند فتح القائمة
+                });
+
+                const closeMenu = () => {
+                    mobileNav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = ''; // لإعادة التمرير عند إغلاق القائمة
+                };
+
+                closeNavBtn.addEventListener('click', closeMenu);
+                overlay.addEventListener('click', closeMenu);
+            }
+        });
+    </script>
 </body>
 </html>

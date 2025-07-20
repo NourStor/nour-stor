@@ -1,77 +1,93 @@
-/* css/main.css */
+/*
+ * Nour Stor - Main CSS File (Finalized for Pure White Theme & Enhanced Mobile Experience)
+ * Author: [Your Name/Nour]
+ * Date: July 2025
+ * Description: Global styles for Nour Stor e-commerce website,
+ * emphasizing a pure white, clean, and highly responsive design with prominent iconography and rounded logo.
+ */
 
-/* --- Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800;900&display=swap');
-/* أضفنا 900 للخط */
-
-/* --- Global Variables --- */
+/* --- 1. CSS Variables (المتغيرات الأساسية) --- */
 :root {
-    /* ألوان مستوحاة من الصورة المرفقة (تم تحليلها من الصورة الأصلية) */
-    --primary-color: #F8BBD0;
-    /* زهري فاتح */
-    --secondary-color: #E1BEE7;
-    /* بنفسجي فاتح */
-    --accent-color: #FFC0CB;
-    /* لون زهري أفتح للتمييز */
+    /* Colors (الألوان) - أبيض نقي وأسود للنصوص */
+    --primary-color: #ff527b;       /* لون زهري جريء ومميز (أكثر حيوية) */
+    --primary-color-light: #ffebf0;  /* لون زهري فاتح جداً للخلفيات الخفيفة والـ hover */
+    --primary-color-dark: #cc4262;   /* لون زهري أغمق قليلاً للنصوص أو الأيقونات عند التحويم */
+    
+    --white-pure: #ffffff;          /* أبيض نقي للخلفيات الرئيسية */
+    --black-text: #222222;          /* أسود غامق للنصوص الأساسية */
+    --dark-gray-text: #444444;      /* رمادي داكن للنصوص الثانوية */
+    --light-gray-text: #777777;     /* رمادي فاتح للنصوص الأقل أهمية */
 
-    --text-color: #555555;
-    /* رمادي متوسط للنصوص */
-    --heading-color: #333333;
-    /* رمادي داكن للعناوين */
-    --light-bg: #fdfdfd;
-    /* خلفية بيضاء ناصعة جداً */
-    --white: #ffffff;
-    --gray: #bbbbbb;
-    /* رمادي أفتح */
-    --border-color: #eeeeee;
-    /* حدود رمادية فاتحة جداً */
+    --border-color-light: #eeeeee;  /* لون حدود فاتح جداً */
+    --border-color-medium: #dddddd; /* لون حدود متوسط */
 
-    --transition-speed: 0.3s;
-    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
-    /* ظل خفيف ونظيف */
-    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
-    /* ظل أعمق عند التحويم */
+    --success-color: #4CAF50;
+    --error-color: #f44336;
+    --warning-color: #ffc107;
+
+    /* Typography (الخطوط) */
+    --font-family-primary: 'Cairo', sans-serif;
+    --font-size-base: 16px;
+    --font-size-sm: 0.875em;    /* 14px */
+    --font-size-md: 1em;        /* 16px */
+    --font-size-lg: 1.125em;    /* 18px */
+    --font-size-xl: 1.25em;     /* 20px */
+    --font-size-xxl: 1.5em;     /* 24px */
+
+    /* Spacing (المسافات) */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 50px;
+    --spacing-xxl: 80px;
+
+    /* Shadows (الظلال) - خفيفة جداً وعصرية */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+
+    /* Border Radius (زوايا الانحناء) */
     --border-radius-sm: 8px;
-    --border-radius-md: 15px;
-    /* زيادة قليلاً */
+    --border-radius-md: 12px;
     --border-radius-lg: 20px;
-    /* NEW: for cart items and modal */
-    --shadow-strong: 0 10px 40px rgba(0, 0, 0, 0.18);
-    /* NEW: stronger shadow for modal */
-    --primary-color-dark: #D898B0;
-    /* A slightly darker primary for accents */
+    --border-radius-full: 50%;
+
+    /* Transitions (الانتقالات) */
+    --transition-speed: 0.3s;
+    --transition-ease: ease-in-out;
 }
 
-/* --- Basic Resets & Body Styles --- */
-* {
+/* --- 2. Base Styles (الأساسيات) --- */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Cairo', sans-serif;
-    line-height: 1.7;
-    /* زيادة تباعد الأسطر للراحة */
-    color: var(--text-color);
-    background-color: var(--light-bg);
-    /* خلفية الجسم باللون الأبيض الناصع */
-    direction: rtl;
-    /* لضمان الاتجاه من اليمين لليسار */
-    overflow-x: hidden;
-    /* لمنع شريط التمرير الأفقي */
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--dark-gray-text); /* نص أساسي رمادي داكن */
+    background-color: var(--white-pure); /* خلفية بيضاء نقية للموقع بالكامل */
+    direction: rtl; /* لضمان دعم اللغة العربية بشكل صحيح */
+    overflow-x: hidden; /* لمنع ظهور شريط التمرير الأفقي */
 }
 
 a {
     text-decoration: none;
     color: var(--primary-color);
-    /* روابط باللون الزهري */
-    transition: color var(--transition-speed) ease;
+    transition: color var(--transition-speed) var(--transition-ease);
 }
 
 a:hover {
-    color: var(--secondary-color);
-    /* تحويل للبنفسجي عند التحويم */
+    color: var(--primary-color-dark);
 }
 
 ul {
@@ -84,504 +100,690 @@ img {
     display: block;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--heading-color);
-    /* عناوين بالرمادي الداكن */
+/* Headings (العناوين) */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--black-text); /* عناوين باللون الأسود */
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
     font-weight: 700;
-    /* جعل العناوين أكثر بروزًا */
 }
+
+h1 { font-size: 2.8em; margin-bottom: var(--spacing-md); } /* 44.8px */
+h2 { font-size: 2.2em; } /* 35.2px */
+h3 { font-size: 1.7em; } /* 27.2px */
+h4 { font-size: 1.3em; } /* 20.8px */
+h5 { font-size: 1em; } /* 16px */
+h6 { font-size: 0.875em; } /* 14px */
 
 p {
-    margin-bottom: 1em;
-    /* مسافة افتراضية تحت الفقرات */
+    margin-bottom: var(--spacing-sm);
 }
 
-/* --- Container --- */
+/* --- 3. Utility Classes (فئات مساعدة) --- */
 .container {
     max-width: 1280px;
-    /* زيادة قليلاً للعرض */
     margin: 0 auto;
-    padding: 0 25px;
-    /* زيادة المسافة الداخلية */
+    padding: 0 var(--spacing-lg);
 }
 
-/* --- Buttons --- */
+.section-padding {
+    padding: var(--spacing-xxl) 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+    color: var(--black-text); /* عنوان القسم أسود */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Buttons (الأزرار) - تصميم عصري وواضح */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
-    /* حجم أكبر قليلاً */
-    border-radius: var(--border-radius-sm);
-    /* استخدام المتغير */
+    padding: 14px 28px;
+    border-radius: var(--border-radius-md);
     font-weight: 600;
-    /* وزن خط متوسط */
-    text-align: center;
-    transition: all var(--transition-speed) ease;
-    /* كل الانتقالات */
-    border: none;
     cursor: pointer;
-    font-size: 1em;
-    letter-spacing: 0.5px;
-    /* مسافة بين الحروف */
+    text-align: center;
+    transition: all var(--transition-speed) var(--transition-ease);
+    border: 2px solid transparent;
+    font-size: var(--font-size-lg);
 }
 
 .btn-primary {
     background-color: var(--primary-color);
-    /* زر أساسي باللون الزهري */
-    color: var(--white);
+    color: var(--white-pure);
+    border-color: var(--primary-color);
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary-color);
-    /* تحويل للبنفسجي عند التحويم */
-    transform: translateY(-2px);
-    /* تأثير رفع بسيط */
-    box-shadow: var(--shadow-light);
-    /* ظل عند التحويم */
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
-    /* زر ثانوي جديد */
-    background-color: var(--white);
+    background-color: transparent;
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .btn-secondary:hover {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
+    border-color: var(--primary-color-light);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Social Icons (أيقونات التواصل الاجتماعي) - حجم أكبر وتصميم أجمل */
+.social-icons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    justify-content: center;
+}
+
+.social-icons a {
+    color: var(--primary-color); /* لون الأيقونات الافتراضي (زهري) */
+    font-size: 1.8em;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-speed) var(--transition-ease),
+                transform var(--transition-speed) var(--transition-ease),
+                box-shadow var(--transition-speed) var(--transition-ease),
+                color var(--transition-speed) var(--transition-ease); /* إضافة انتقال اللون */
+    border: 1px solid var(--border-color-medium); /* حدود خفيفة */
+}
+
+.social-icons a:hover {
     background-color: var(--primary-color);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-light);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    color: var(--white-pure); /* الأيقونة تصبح بيضاء عند التحويم */
+    border-color: var(--primary-color);
 }
 
-/* --- Section Padding --- */
-.section-padding {
-    padding: 80px 0;
-    /* زيادة المسافة الرأسية بين الأقسام */
+/* Card Base Style (ستايل أساسي للكروت) - فاتح وعصري */
+.card {
+    background-color: var(--white-pure);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md);
+    transition: transform var(--transition-speed) var(--transition-ease), box-shadow var(--transition-speed) var(--transition-ease);
+    overflow: hidden;
+    border: 1px solid var(--border-color-light); /* حدود خفيفة جداً للكارد */
 }
 
-/* --- Main Header --- */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card img {
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- 4. Main Header (الرأس الرئيسي) - أبيض بالكامل ونصوص سوداء وأيقونات أكبر --- */
 .main-header {
-    background-color: var(--white);
-    box-shadow: var(--shadow-light);
-    /* ظل أنعم وأكثر عصرية */
-    padding: 18px 0;
-    /* زيادة ارتفاع الهيدر قليلاً */
+    background-color: var(--white-pure); /* أبيض نقي */
+    padding: var(--spacing-md) 0;
+    box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
+    border-bottom: 1px solid var(--border-color-light); /* خط فاصل خفيف جداً */
 }
 
-.header-content {
+.main-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
+.main-header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.main-header .logo {
     display: flex;
     align-items: center;
-    font-size: 26px;
-    /* حجم أكبر للشعار النصي */
+    font-size: 1.9em;
     font-weight: 800;
-    color: var(--heading-color);
+    color: var(--black-text); /* لون شعار النص أسود */
+    gap: var(--spacing-xs);
 }
 
-.logo img {
-    height: 45px;
-    /* حجم أكبر للشعار الصوري */
-    margin-inline-end: 12px;
+.main-header .logo img {
+    height: 48px; /* حجم أكبر للشعار */
+    width: 48px;
+    border-radius: var(--border-radius-full); /* جعل الشعار دائرياً */
+    object-fit: cover;
+    border: 2px solid var(--primary-color-light); /* حدود خفيفة بلون زهري */
+    box-shadow: var(--shadow-sm);
 }
 
-.main-nav ul {
+.main-header .main-nav {
+    display: block;
+}
+
+.main-header .main-nav ul {
     display: flex;
-    gap: 40px;
-    /* زيادة المسافة بين روابط القائمة الرئيسية */
+    gap: var(--spacing-xl);
 }
 
-.main-nav a {
-    color: var(--text-color);
-    font-weight: 500;
-    font-size: 1.05em;
-    /* تكبير الخط قليلاً */
+.main-header .main-nav a {
+    color: var(--dark-gray-text); /* لون روابط التنقل رمادي داكن */
+    font-weight: 600;
+    padding: var(--spacing-xs) 0;
     position: relative;
-    padding-bottom: 8px;
-    /* مسافة أكبر للخط السفلي */
-    transition: color var(--transition-speed) ease;
+    font-size: var(--font-size-lg);
 }
 
-.main-nav a.active,
-.main-nav a:hover {
-    color: var(--primary-color);
-    /* لون زهري عند النشاط أو التحويم */
-}
-
-.main-nav a::after {
+.main-header .main-nav a::after {
     content: '';
     position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 0;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 0%;
     height: 3px;
-    /* سمك أكبر للخط */
     background-color: var(--primary-color);
-    /* خط زهري */
-    transition: width var(--transition-speed) ease;
+    border-radius: 2px;
+    transition: all var(--transition-speed) var(--transition-ease);
 }
 
-.main-nav a.active::after,
-.main-nav a:hover::after {
+.main-header .main-nav a:hover::after,
+.main-header .main-nav a.active::after {
     width: 100%;
-    left: 0;
-    right: auto;
+    transform: translateX(-50%) scaleX(1);
 }
 
-.header-icons {
+.main-header .header-icons {
     display: flex;
     align-items: center;
-    gap: 25px;
-    /* مسافة أكبر بين الأيقونات */
+    gap: var(--spacing-md);
 }
 
 .header-icons button,
 .header-icons .cart-icon {
     background: none;
     border: none;
-    font-size: 22px;
-    /* حجم أكبر للأيقونات */
-    color: var(--gray);
-    /* لون أيقونات الهيدر */
+    font-size: 28px; /* حجم أيقونات الهيدر أكبر */
+    color: var(--black-text); /* لون أيقونات الهيدر أسود */
     cursor: pointer;
     position: relative;
-    transition: color var(--transition-speed) ease;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
 .header-icons button:hover,
 .header-icons .cart-icon:hover {
     color: var(--primary-color);
-    /* لون زهري عند التحويم */
+    transform: translateY(-3px);
 }
 
-.cart-icon .cart-count {
+.cart-count {
     position: absolute;
-    top: -5px;
-    /* تعديل الموضع */
-    left: -5px;
-    background-color: #e74c3c;
-    /* أحمر واضح */
-    color: var(--white);
-    font-size: 11px;
-    /* حجم أصغر قليلاً للرقم */
-    border-radius: 50%;
-    padding: 1px 5px;
-    min-width: 18px;
-    /* حجم أدنى */
+    top: -8px;
+    right: -10px;
+    background-color: var(--primary-color);
+    color: var(--white-pure);
+    font-size: 0.8em;
+    border-radius: var(--border-radius-full);
+    padding: 3px 7px;
+    min-width: 22px;
     text-align: center;
-    display: flex;
-    /* لضمان التوسيط الجيد للرقم */
-    align-items: center;
-    justify-content: center;
-    height: 18px;
-    /* ارتفاع مطابق للعرض */
+    line-height: 1;
+    font-weight: bold;
+    box-shadow: var(--shadow-sm);
 }
 
 .menu-toggle-btn {
     display: none;
-    /* مخفي افتراضيا, يظهر في شاشات الجوال */
+    font-size: 36px; /* حجم أكبر لزر الهامبرغر على الموبايل */
+    color: var(--black-text); /* لونه أسود */
+}
+.menu-toggle-btn:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
 }
 
-/* --- Mobile Navigation (القائمة الجانبية) --- */
-.mobile-nav {
-    /* تغييرات هنا لفتح القائمة من اليسار وألوانها */
+/* --- 5. Mobile Navigation (القائمة الجانبية) - أبيض ونصوص سوداء وأيقونات أكبر --- */
+.overlay {
     position: fixed;
-    /* تغيير إلى fixed لتبقى ثابتة على الشاشة */
     top: 0;
     right: 0;
-    /* ابدأ من اليمين لتتحرك إلى اليسار */
+    width: 100%;
     height: 100%;
-    /* ارتفاع كامل للشاشة */
-    width: 280px;
-    /* عرض ثابت للقائمة */
-    max-width: 80%;
-    /* لضمان عدم تجاوز الشاشة الصغيرة */
-    background-color: var(--white);
-    /* خلفية بيضاء */
-    padding: 25px 20px;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    /* ظل من اليسار */
-    transform: translateX(100%);
-    /* مخفية في البداية خارج الشاشة لليمين */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
     opacity: 0;
     visibility: hidden;
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s ease-out;
-    z-index: 9999;
-    /* تأكد أنها فوق كل شيء */
-    display: flex;
-    /* لتحسين محاذاة العناصر الداخلية */
-    flex-direction: column;
-    /* جعل المحتوى عموديًا */
-    align-items: flex-start;
-    /* محاذاة العناصر لليسار */
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
 }
 
-.mobile-nav.active {
-    transform: translateX(0);
-    /* تظهر بتحريكها إلى الموضع الأصلي */
+.overlay.active {
     opacity: 1;
     visibility: visible;
 }
 
-.mobile-nav ul {
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px; /* عرض القائمة الجانبية */
+    height: 100%;
+    background-color: var(--white-pure); /* أبيض نقي */
+    box-shadow: var(--shadow-lg);
+    z-index: 9999;
+    padding: var(--spacing-lg); /* 30px padding */
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    /* مسافة أكبر بين روابط القائمة الجانبية */
+    align-items: flex-start;
+    transition: right 0.4s var(--transition-ease);
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav-close-btn {
+    background: none;
+    border: none;
+    font-size: 38px; /* حجم أكبر لزر الإغلاق */
+    color: var(--black-text); /* لونه أسود */
+    cursor: pointer;
+    align-self: flex-start;
+    margin-bottom: var(--spacing-md);
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.mobile-nav-close-btn:hover {
+    color: var(--error-color);
+    transform: rotate(90deg);
+}
+
+.mobile-nav .mobile-nav-logo {
+    margin-bottom: var(--spacing-lg);
+    align-self: flex-start;
+}
+.mobile-nav .mobile-nav-logo img {
+    height: 45px; /* حجم الشعار في القائمة الجانبية */
+    width: 45px;
+    border-radius: var(--border-radius-full);
+    object-fit: cover;
+    border: 2px solid var(--primary-color-light);
+}
+.mobile-nav .mobile-nav-logo span {
+    font-size: 1.8em; /* تكبير اسم المتجر */
+    color: var(--black-text);
+}
+
+.mobile-nav ul {
     width: 100%;
-    /* لجعل الروابط تمتد على كامل عرض القائمة */
+    flex-grow: 1;
+    padding-bottom: var(--spacing-md);
+}
+
+.mobile-nav ul li {
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color-light); /* خط فاصل خفيف */
+}
+
+.mobile-nav ul li:last-child {
+    border-bottom: none;
 }
 
 .mobile-nav a {
-    color: var(--heading-color);
-    /* لون نص أسود (أو رمادي داكن) */
-    font-weight: 500;
-    font-size: 1.1em;
-    /* حجم خط أكبر */
     display: block;
-    padding: 12px 15px;
-    /* مسافة داخلية أكبر */
+    padding: var(--spacing-md); /* 20px - حجم أكبر للروابط */
+    color: var(--dark-gray-text); /* لون روابط التنقل رمادي داكن */
+    font-size: var(--font-size-xl); /* 20px - حجم خط أكبر */
+    font-weight: 500;
     border-radius: var(--border-radius-sm);
-    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    width: 100%;
     text-align: right;
-    /* محاذاة لليمين */
 }
 
-.mobile-nav a:hover {
-    background-color: var(--light-bg);
-    /* لون تحويم أفتح قليلاً */
-    color: var(--primary-color);
-    /* لون زهري عند التحويم */
+.mobile-nav a:hover,
+.mobile-nav a.active {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
+    transform: translateX(-8px);
+    box-shadow: var(--shadow-sm);
 }
 
+.mobile-nav .bottom-links {
+    margin-top: auto;
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--border-color-light);
+    width: 100%;
+    text-align: center;
+    background-color: var(--white-pure); /* أبيض نقي */
+}
 
-/* --- Main Footer --- */
+.mobile-nav .bottom-links h3 {
+    color: var(--black-text); /* أسود */
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+}
+
+.mobile-nav .bottom-links .social-icons {
+    gap: var(--spacing-lg);
+}
+
+.mobile-nav .bottom-links .social-icons a {
+    color: var(--dark-gray-text); /* أيقونات السوشيال ميديا رمادي داكن هنا */
+    background-color: transparent; /* خلفية شفافة */
+    border: 1px solid var(--border-color-medium);
+    font-size: 1.6em; /* 25.6px */
+    width: 48px;
+    height: 48px;
+}
+.mobile-nav .bottom-links .social-icons a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-pure);
+    transform: translateY(-5px);
+}
+
+/* --- 6. Main Footer (التذييل الرئيسي) - أبيض ونصوص سوداء وأيقونات في مكانها --- */
 .main-footer {
-    background-color: #a49da6;    /* خلفية الفوتر باللون الزهري */
-    color: var(--white);
-    padding: 60px 0 30px;
-    /* مسافة داخلية أكبر */
-    font-size: 15px;
+    background-color: var(--white-pure); /* أبيض نقي */
+    color: var(--dark-gray-text); /* نصوص رمادي داكن */
+    padding: var(--spacing-xxl) 0 var(--spacing-lg);
+    font-size: var(--font-size-base);
+    border-top: 1px solid var(--border-color-light); /* خط فاصل خفيف جداً */
+    box-shadow: var(--shadow-inset);
 }
 
-.footer-grid {
+.main-footer .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    /* تعديل الأعمدة */
-    gap: 40px;
-    /* مسافة أكبر */
-    margin-bottom: 40px;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
-.footer-column h3 {
-    color: var(--white);
-    /* عناوين الفوتر باللون الأبيض */
-    font-size: 22px;
-    /* حجم أكبر للعناوين */
-    margin-bottom: 25px;
-    /* مسافة أكبر */
+.main-footer h3 {
+    color: var(--black-text); /* عناوين الفوتر بالأسود */
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
     position: relative;
-    padding-bottom: 12px;
-    font-weight: 700;
+    padding-bottom: var(--spacing-sm);
 }
-
-.footer-column h3::after {
+.main-footer h3::after {
     content: '';
     position: absolute;
-    right: 0;
     bottom: 0;
-    width: 60px;
-    /* خط أطول قليلاً */
+    right: 0;
+    width: 40px;
     height: 3px;
-    /* سمك أكبر */
-    background-color: var(--accent-color);
-    /* خط باللون الزهري الفاتح */
+    background-color: var(--primary-color);
+    border-radius: 2px;
 }
 
-.footer-column p {
-    margin-bottom: 18px;
-    /* مسافة أكبر للفقرات */
-    color: rgba(255, 255, 255, 0.9);
-    /* لون أبيض شفاف قليلاً للوضوح */
-    line-height: 1.8;
+.main-footer p {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-md);
+    line-height: 1.7;
 }
 
-.footer-column ul li {
-    margin-bottom: 12px;
+.main-footer .footer-column ul li {
+    margin-bottom: var(--spacing-sm);
 }
 
-.footer-column ul li a {
-    color: rgba(255, 255, 255, 0.9);
-    /* روابط باللون الأبيض الشفاف */
-    font-size: 1.05em;
+.main-footer .footer-column a {
+    color: var(--light-gray-text); /* روابط الفوتر رمادي فاتح */
+    font-size: var(--font-size-md);
+    display: block;
+    transition: all var(--transition-speed) var(--transition-ease);
 }
 
-.footer-column ul li a:hover {
-    color: var(--white);
-    /* تحويل للأبيض النقي عند التحويم */
+.main-footer .footer-column a:hover {
+    color: var(--primary-color);
+    transform: translateX(-8px);
 }
 
-.social-icons a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    /* حجم أكبر للأيقونات الاجتماعية */
-    height: 45px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.15);
-    /* شفافية أكبر */
-    color: var(--white);
-    font-size: 20px;
-    margin-inline-end: 12px;
-    transition: background-color var(--transition-speed) ease;
+.main-footer .footer-column p i {
+    margin-left: var(--spacing-sm);
+    color: var(--primary-color);
+    font-size: var(--font-size-lg);
 }
 
-.social-icons a:hover {
-    background-color: var(--secondary-color);
-    /* لون بنفسجي أنيق عند التحويم */
-    transform: translateY(-2px);
+.main-footer .social-icons {
+    margin-top: var(--spacing-lg);
+    justify-content: flex-start; /* محاذاة لليمين في الفوتر (RTL) */
+    gap: var(--spacing-md);
 }
 
-.footer-column .fas {
-    margin-inline-end: 12px;
-    color: var(--accent-color);
-    /* لون زهري فاتح للأيقونات */
+.main-footer .social-icons a {
+    color: var(--black-text); /* أيقونات السوشيال ميديا في الفوتر سوداء */
+    background-color: transparent; /* خلفية شفافة */
+    border: 1px solid var(--border-color-medium); /* حدود متوسطة */
 }
 
-.footer-bottom {
+.main-footer .social-icons a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-pure);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.main-footer .footer-bottom {
     text-align: center;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    /* خط أبيض شفاف */
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9em;
+    border-top: 1px solid var(--border-color-light);
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    font-size: var(--font-size-sm);
+    color: var(--light-gray-text);
 }
 
-/* --- Responsive Design (للهاتف) --- */
-@media (max-width: 992px) {
-    .main-nav {
+/* --- 7. Responsive Adjustments (التعديلات المتجاوبة) --- */
+
+/* Large devices (Desktops, 992px - 1199px) */
+@media (max-width: 1199px) {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.5em; }
+
+    .main-header .main-nav ul {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Medium devices (Tablets, 768px - 991px) */
+@media (max-width: 991px) {
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.4em; }
+
+    .main-header .main-nav {
         display: none;
-        /* إخفاء قائمة الديسكتوب */
+    }
+
+    .main-header .header-content {
+        justify-content: space-between;
     }
 
     .menu-toggle-btn {
         display: block;
-        /* إظهار زر التبديل */
     }
 
-    .header-content {
-        justify-content: space-between;
+    .main-header .logo {
+        font-size: 1.7em;
+    }
+    .main-header .logo img {
+        height: 42px; /* تصغير طفيف للشعار في التابلت */
+        width: 42px;
     }
 
-    .header-icons {
-        gap: 20px;
+    .header-icons button,
+    .header-icons .cart-icon {
+        font-size: 26px; /* حجم أيقونات الهيدر في التابلت */
     }
 
-    .logo {
-        font-size: 22px;
-    }
-
-    .logo img {
-        height: 40px;
-    }
-
-    .section-padding {
-        padding: 60px 0;
-        /* تقليل المسافة قليلاً */
-    }
-
-    .footer-grid {
-        gap: 30px;
+    .main-footer .footer-grid {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        text-align: right;
     }
-
-    .footer-column h3 {
-        font-size: 20px;
+    .main-footer .social-icons {
+        justify-content: flex-start;
+    }
+    .main-footer h3::after {
+        left: unset;
+        right: 0;
+        transform: none;
     }
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
+/* Small devices (Landscape phones, 576px - 767px) */
+@media (max-width: 767px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.6em; }
+    h3 { font-size: 1.2em; }
+
+    .section-padding {
+        padding: var(--spacing-xl) 0;
     }
 
     .main-header {
-        padding: 12px 0;
+        padding: var(--spacing-sm) 0;
     }
-
-    .logo {
-        font-size: 20px;
+    .main-header .logo {
+        font-size: 1.5em;
     }
-
-    .logo img {
-        height: 35px;
+    .main-header .logo img {
+        height: 38px; /* حجم الشعار في الموبايل */
+        width: 38px;
     }
-
+    
     .header-icons button,
     .header-icons .cart-icon {
-        font-size: 20px;
+        font-size: 24px; /* حجم أيقونات الهيدر في الموبايل */
+    }
+    .main-header .header-icons {
+        gap: var(--spacing-sm);
     }
 
-    .cart-icon .cart-count {
-        min-width: 16px;
-        height: 16px;
-        font-size: 10px;
+    .mobile-nav {
+        width: 280px; /* عرض القائمة الجانبية في الموبايل */
+        padding: var(--spacing-md);
+    }
+    .mobile-nav-close-btn {
+        font-size: 34px; /* حجم زر الإغلاق في الموبايل */
+    }
+    .mobile-nav .mobile-nav-logo img {
+        height: 40px; /* حجم الشعار في القائمة الجانبية موبايل */
+        width: 40px;
+    }
+    .mobile-nav .mobile-nav-logo span {
+        font-size: 1.6em;
+    }
+    .mobile-nav a {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-lg);
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-        /* عمود واحد في الشاشات الأصغر */
-        text-align: center;
+    .btn {
+        padding: 12px 24px;
+        font-size: var(--font-size-base);
     }
-
-    .footer-column h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .social-icons {
-        text-align: center;
-        margin-top: 20px;
-    }
-
+    
     .social-icons a {
-        margin: 0 8px;
-        /* تباعد أيقونات السوشيال في المنتصف */
+        font-size: 1.5em; /* 24px */
+        width: 45px;
+        height: 45px;
+    }
+
+    .main-footer .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .main-footer .social-icons {
+        justify-content: center;
+    }
+    .main-footer h3::after {
+        right: 50%;
+        transform: translateX(50%);
     }
 }
 
-@media (max-width: 480px) {
-    .section-padding {
-        padding: 40px 0;
+/* Extra small devices (Portrait phones, less than 576px) */
+@media (max-width: 575px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.5em; }
+    
+    .hero-content h1 {
+        font-size: 1.9em;
     }
 
-    .logo {
-        font-size: 18px;
+    .main-header .header-icons {
+        gap: var(--spacing-xs);
     }
-
-    .logo img {
-        height: 30px;
-    }
-
-    .header-icons {
-        gap: 10px;
-    }
-
     .header-icons button,
     .header-icons .cart-icon {
-        font-size: 18px;
+        font-size: 22px; /* أصغر حجم للأيقونات في أصغر الشاشات */
+    }
+    .main-header .logo {
+        font-size: 1.4em;
+    }
+    .main-header .logo img {
+        height: 35px; /* أصغر حجم للشعار في أصغر الشاشات */
+        width: 35px;
+    }
+
+    .mobile-nav {
+        width: 260px;
+        padding: var(--spacing-md);
+    }
+    .mobile-nav-close-btn {
+        font-size: 30px;
+    }
+    .mobile-nav .mobile-nav-logo img {
+        height: 35px;
+        width: 35px;
+    }
+    .mobile-nav .mobile-nav-logo span {
+        font-size: 1.5em;
+    }
+    .mobile-nav a {
+        padding: var(--spacing-xs);
+        font-size: var(--font-size-base);
+    }
+    
+    .social-icons a {
+        font-size: 1.3em; /* 20.8px */
+        width: 40px;
+        height: 40px;
     }
 }

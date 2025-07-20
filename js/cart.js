@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendPaymentProofBtn = document.getElementById('send-payment-proof-btn');
     const successMessageDiv = document.getElementById('success-message'); // NEW: Success message div
 
-    const TELEGRAM_BOT_TOKEN = '7675340167:AAELWNZKBbhm3mzsWQbtclynxOSFDoMp2ho'; // توكن البوت الخاص بك
-    const TELEGRAM_CHAT_ID = '1213902845'; // ID المحادثة الخاصة بك (أو ID المجموعة)
+    const TELEGRAM_BOT_TOKEN = '7802492625:AAE-9hC6d4L84KUIs6s-lUEzn8rIVzbOlxk'; // توكن البوت الخاص بك
+    const TELEGRAM_CHAT_ID = '5840731327'; // ID المحادثة الخاصة بك (أو ID المجموعة)
 
     let cart = []; // مصفوفة لتخزين عناصر السلة مؤقتًا
 

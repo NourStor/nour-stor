@@ -1,40 +1,46 @@
-/* css/index.css */
-
 /*
-   تأكد أن المتغيرات الأساسية مثل:
-   --white, --heading-color, --text-color, --light-bg,
-   --border-radius-sm, --border-radius-md,
-   --shadow-light, --shadow-medium, --transition-speed
-   مُعرفة في ملف css/main.css أو أضفها هنا في :root
-*/
+ * Nour Stor - Index CSS File (Modern, Organized, Lightweight Design)
+ * Author: [Your Name/Nour]
+ * Date: July 2025
+ * Description: Styles for the home page sections,
+ * focusing on modern aesthetics, light colors, smooth animations, and responsive design.
+ */
 
+/* --- CSS Variables for index.css (تأكيد استخدام متغيرات main.css وتحديد الألوان الخاصة بالصفحة الرئيسية) --- */
+/* يفضل أن تكون المتغيرات الأساسية كلها في main.css لضمان التناسق */
+/* هذه المتغيرات يمكن استخدامها إذا أردنا ألواناً مختلفة قليلاً لـ index.css فقط */
 :root {
-    /* ألوان مستوحاة من الصورة المرفقة */
-    --primary-color: #F8BBD0; /* زهري فاتح */
-    --accent-color: #E1BEE7; /* بنفسجي فاتح */
-    --secondary-color: #e74c3c; /* لون مميز للأسهم (أحمر مثلاً) */
-    
-    /* متغيرات عامة (يمكن أن تكون في main.css أيضاً) */
-    --white: #ffffff;
-    --heading-color: #333333;
-    --text-color: #555555;
-    --light-bg: #f9f9f9;
-    --border-radius-sm: 8px; /* زيادة قليلاً */
-    --border-radius-md: 15px; /* زيادة قليلاً */
-    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08); /* ظل أوضح قليلاً */
-    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15); /* ظل أوضح عند التحويم */
-    --transition-speed: 0.3s ease-in-out;
+    /* ألوان مستوحاة من الصورة المرفقة، مع دمجها بمتغيرات main.css لضمان التناسق */
+    /* Primary Color for hero button/accents in index.css - يمكن تعديله ليتناسب مع main.css */
+    --index-primary-accent: #ff7599; /* زهري مشرق أكثر حيوية */
+    --index-secondary-accent: #D0B8E1; /* بنفسجي فاتح مريح (أفتح من E1BEE7) */
+    --index-arrow-color: #f75c6c; /* أحمر ناعم للأسهم */
+
+    /* استخدام المتغيرات من main.css قدر الإمكان */
+    /* --white-pure: #ffffff; */
+    /* --black-text: #222222; */
+    /* --dark-gray-text: #444444; */
+    /* --light-gray-text: #777777; */
+    /* --primary-color: #ff527b; (من main.css) */
+
+    /* Overriding or defining specific shadows for index.css if needed */
+    --index-shadow-light: 0 6px 15px rgba(0, 0, 0, 0.08); /* ظل أوضح قليلاً */
+    --index-shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.15); /* ظل أوضح عند التحويم */
 }
 
 
-/* --- Hero Section --- */
+/* --- Hero Section (قسم البطل) --- */
 .hero-section {
-    background: url('../images/hero.png') no-repeat center center/cover;
-    color: var(--white);
+    background: url('../images/hero.png') no-repeat center center/cover; /* تأكد من مسار الصورة واسمها */
+    color: var(--white-pure); /* استخدام الأبيض النقي من main.css */
     text-align: center;
-    padding: 120px 0; /* مسافة داخلية أكبر */
+    padding: 150px 0; /* مسافة داخلية أكبر لمظهر فخم */
     position: relative;
-    z-index: 1; /* لضمان ظهور المحتوى فوق الخلفية */
+    z-index: 1;
+    display: flex; /* لضمان توسيط المحتوى */
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /* ارتفاع أدنى ليظهر بشكل جيد */
 }
 
 .hero-section::before {
@@ -44,51 +50,62 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.45); /* طبقة داكنة لزيادة وضوح النص */
+    background-color: rgba(0, 0, 0, 0.55); /* طبقة داكنة أكثر لزيادة وضوح النص */
     z-index: -1;
 }
 
+.hero-content {
+    max-width: 900px; /* زيادة عرض المحتوى */
+    margin: 0 auto;
+    padding: 0 var(--spacing-md); /* استخدم متغيرات المسافات من main.css */
+}
+
 .hero-content h1 {
-    font-size: 4.5em; /* حجم خط أكبر للعنوان الرئيسي */
-    margin-bottom: 25px;
+    font-size: 5em; /* حجم خط أكبر للعنوان الرئيسي */
+    margin-bottom: var(--spacing-lg); /* 30px */
     line-height: 1.2;
-    font-weight: 900; /* خط ثقيل جداً */
-    color: var(--white); /* تأكيد لون النص الأبيض */
+    font-weight: 900;
+    color: var(--white-pure);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* ظل نص خفيف */
 }
 
 .hero-content p {
-    font-size: 1.4em; /* حجم خط أكبر للفقرة */
-    margin-bottom: 40px;
-    max-width: 700px;
+    font-size: 1.5em; /* حجم خط أكبر للفقرة */
+    margin-bottom: var(--spacing-xl); /* 50px */
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
-    color: rgba(255, 255, 255, 0.9); /* لون أبيض شفاف قليلاً */
+    color: rgba(255, 255, 255, 0.95); /* لون أبيض شفاف جداً */
+    line-height: 1.7; /* تباعد أسطر أفضل */
 }
 
 .hero-content .btn {
-    font-size: 1.2em; /* زر أكبر وأبرز */
-    padding: 15px 40px;
-    border-radius: 50px; /* زر بيضاوي */
-    background-color: var(--accent-color); /* لون بنفسجي مميز */
-    color: var(--heading-color); /* لون نص داكن على البنفسجي */
-    font-weight: 800; /* خط ثقيل */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* ظل واضح */
+    font-size: 1.3em; /* زر أكبر وأبرز */
+    padding: 18px 45px; /* حجم بادينغ أكبر */
+    border-radius: 50px;
+    background-color: var(--index-primary-accent); /* لون زهري مميز للزر */
+    color: var(--white-pure); /* نص أبيض على الزر */
+    font-weight: 800;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* ظل أوضح */
+    border: 2px solid transparent; /* حدود شفافة */
+    letter-spacing: 0.05em; /* تباعد أحرف */
 }
 
 .hero-content .btn:hover {
-    background-color: #B29ACC; /* درجة أغمق قليلاً من البنفسجي */
-    transform: translateY(-4px); /* رفع أكثر عند التحويم */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    background-color: var(--primary-color-dark); /* استخدم لون أغمق من main.css للتحويم */
+    transform: translateY(-5px); /* رفع أكثر عند التحويم */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    border-color: var(--white-pure); /* حدود بيضاء عند التحويم */
 }
 
 /* --- Section Titles (General for home page sections) --- */
 .section-title {
-    font-size: 3.2em; /* حجم خط كبير للعناوين */
-    color: var(--heading-color);
+    font-size: 3.5em; /* حجم خط كبير جداً للعناوين */
+    color: var(--black-text); /* لون أسود من main.css */
     text-align: center;
-    margin-bottom: 60px; /* مسافة أكبر أسفل العنوان */
+    margin-bottom: var(--spacing-xxl); /* مسافة أكبر أسفل العنوان */
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: var(--spacing-md);
     font-weight: 800;
 }
 
@@ -98,85 +115,81 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; /* خط أطول تحت العنوان */
-    height: 5px; /* سمك أكبر للخط */
-    background-color: var(--primary-color); /* استخدام اللون الزهري */
+    width: 120px; /* خط أطول تحت العنوان */
+    height: 6px; /* سمك أكبر للخط */
+    background-color: var(--primary-color); /* استخدام اللون الزهري من main.css */
     border-radius: 3px;
 }
 
-/* --- General Scrollable Section Wrapper --- */
-/* هذه الحاوية ستضم العنوان، شبكة العناصر، وأزرار التمرير */
+/* --- General Scrollable Section Wrapper (للكروت) --- */
 .scrollable-section-wrapper {
-    position: relative; /* لتحديد موضع الأسهم */
-    margin-bottom: 60px; /* مسافة أسفل القسم */
+    position: relative;
+    margin-bottom: var(--spacing-xxl); /* مسافة أسفل القسم */
+    padding: var(--spacing-lg) 0; /* مسافة داخلية لتوفير مساحة للظلال والأزرار */
 }
 
 .scroll-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 50%; /* لتوسيطها عمودياً */
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    padding: 0 20px; /* مسافة من الجوانب */
-    pointer-events: none; /* لتسمح بالضغط على العناصر خلفها */
-    z-index: 10;
+    display: none; /* إخفاء افتراضي على سطح المكتب */
 }
 
 .scroll-button {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    background-color: var(--white-pure);
+    border: 1px solid var(--border-color-medium);
+    border-radius: var(--border-radius-full);
+    width: 60px; /* حجم أكبر للأزرار */
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
-    color: var(--secondary-color); /* لون الأيقونة */
+    font-size: 2.5em; /* أيقونات أكبر */
+    color: var(--index-arrow-color); /* لون أحمر ناعم للأسهم */
     cursor: pointer;
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--index-shadow-light);
     transition: all var(--transition-speed);
-    pointer-events: auto; /* لتمكين الضغط عليها */
-    opacity: 0.8; /* شفافية بسيطة */
+    pointer-events: auto;
+    opacity: 0.9; /* شفافية بسيطة */
+    position: absolute; /* لتكون فوق المحتوى */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
 }
 
 .scroll-button:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-    transform: translateY(-50%) scale(1.1); /* تأثير تكبير بسيط مع الحفاظ على التوسيط */
+    background-color: var(--index-primary-accent); /* لون زهري عند التحويم */
+    color: var(--white-pure);
+    transform: translateY(-50%) scale(1.1);
     opacity: 1;
+    box-shadow: var(--index-shadow-medium);
+    border-color: var(--index-primary-accent);
 }
 
-/* إخفاء الأزرار على سطح المكتب */
-@media (min-width: 769px) {
-    .scroll-buttons {
-        display: none;
-    }
+.scroll-button.left {
+    right: 15px; /* يمين في RTL */
 }
-
+.scroll-button.right {
+    left: 15px; /* يسار في RTL */
+}
 
 /* --- Featured Categories Section --- */
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px; /* تقليل المسافة قليلاً */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* حجم أكبر للبطاقات */
+    gap: var(--spacing-md); /* 20px */
 }
 
 .category-card {
     position: relative;
-    aspect-ratio: 1 / 1; /* نسبة العرض إلى الارتفاع 1:1 لجعلها مربعة */
-    border-radius: var(--border-radius-md);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--border-radius-lg); /* زوايا دائرية أكبر */
     overflow: hidden;
     display: flex;
-    align-items: center; /* توسيط عمودي */
-    justify-content: center; /* توسيط أفقي */
-    box-shadow: var(--shadow-light);
+    align-items: flex-end; /* وضع الأوفرلاي في الأسفل */
+    justify-content: center;
+    box-shadow: var(--index-shadow-light);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    background-size: cover; /* لتغطية الحاوية */
+    background-size: cover;
     background-position: center;
+    border: 1px solid var(--border-color-light); /* حدود خفيفة */
 }
 
 .category-card::before {
@@ -186,295 +199,332 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.1); /* طبقة بيضاء شفافة قليلاً */
+    background-color: rgba(0, 0, 0, 0.2); /* طبقة داكنة أكثر */
     z-index: 1;
     transition: background-color 0.4s ease;
 }
 
 .category-card:hover {
-    transform: translateY(-10px); /* تأثير رفع أوضح */
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-12px); /* تأثير رفع أوضح */
+    box-shadow: var(--index-shadow-medium);
 }
 
 .category-card:hover::before {
-    background-color: rgba(255, 255, 255, 0.3); /* زيادة الشفافية عند التحويم */
+    background-color: rgba(0, 0, 0, 0.4); /* زيادة التعتيم عند التحويم */
 }
-
 
 .category-overlay {
     position: relative;
     z-index: 2;
-    color: var(--heading-color); /* استخدام لون أغمق للنص */
+    color: var(--white-pure); /* نص أبيض ليوضح على الخلفية الداكنة */
     text-align: center;
     width: 100%;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.7); /* خلفية بيضاء شفافة للنص */
-    border-radius: var(--border-radius-sm);
-    /* توسيط عمودي وأفقي في حالة عدم وجود align-items:center في .category-card */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; /* لجعلها تملأ البطاقة */
+    padding: var(--spacing-md);
+    background-color: rgba(0, 0, 0, 0.6); /* خلفية داكنة شفافة للنص */
+    border-top-left-radius: 0; /* إزالة الدائرية من الأعلى ليلتصق بالأعلى */
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--border-radius-lg);
+    border-bottom-right-radius: var(--border-radius-lg);
+    /* لا داعي للـ height: 100% هنا، لأننا نريدها في الأسفل فقط */
+    transform: translateY(100%); /* إخفاء الأوفرلاي بالكامل */
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.category-card:hover .category-overlay {
+    transform: translateY(0); /* إظهار الأوفرلاي بالكامل عند التحويم */
+    background-color: rgba(0, 0, 0, 0.8); /* تعتيم أكثر عند التحويم */
 }
 
 .category-overlay h3 {
-    font-size: 1.6em;
+    font-size: 1.8em; /* حجم أكبر للعنوان */
     font-weight: 700;
     margin-bottom: 0;
-    text-shadow: none; /* إزالة ظل النص */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* --- Featured Products Section (جديد أو معدّل) --- */
-/* قم بتطبيق نفس أنماط التمرير الأفقي هنا */
+/* --- Featured Products Section --- */
 .featured-products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* يمكن تعديل minmax */
-    gap: 20px;
-    /* أضف أنماط البطاقات الخاصة بمنتجاتك هنا، مثل .product-card */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
 }
 
 .product-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-light);
-    padding: 15px;
+    background-color: var(--white-pure);
+    border-radius: var(--border-radius-lg); /* زوايا دائرية أكبر */
+    box-shadow: var(--index-shadow-light);
+    padding: var(--spacing-md);
     text-align: center;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--border-color-light);
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-8px); /* رفع أكثر */
+    box-shadow: var(--index-shadow-medium);
 }
 
 .product-card img {
     max-width: 100%;
-    height: 200px; /* ارتفاع ثابت للصور */
-    object-fit: cover; /* لضمان تغطية الصورة للمساحة */
-    border-radius: var(--border-radius-sm);
-    margin-bottom: 10px;
+    height: 220px; /* ارتفاع ثابت للصور أكبر قليلاً */
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-sm);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .product-card h4 {
-    color: var(--heading-color);
-    font-size: 1.3em;
-    margin-bottom: 8px;
+    color: var(--black-text);
+    font-size: 1.4em; /* حجم أكبر للعنوان */
+    margin-bottom: var(--spacing-xs);
+    font-weight: 700;
 }
 
 .product-card p {
-    color: var(--text-color);
-    font-size: 0.9em;
-    margin-bottom: 15px;
+    color: var(--light-gray-text); /* نص رمادي فاتح للوصف */
+    font-size: 0.95em;
+    margin-bottom: var(--spacing-sm);
+    min-height: 2.8em; /* لضمان ثبات ارتفاع الكارد للوصف القصير */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* عرض سطرين فقط */
+    -webkit-box-orient: vertical;
 }
 
 .product-card .price {
-    font-size: 1.1em;
-    font-weight: 700;
+    font-size: 1.3em; /* سعر أكبر وأوضح */
+    font-weight: 800;
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: var(--spacing-md); /* مسافة أكبر قبل الزر */
     display: block;
 }
 
+.product-card .btn {
+    font-size: 1em; /* حجم زر الشراء */
+    padding: 10px 20px;
+    border-radius: var(--border-radius-md);
+    background-color: var(--primary-color);
+    color: var(--white-pure);
+    font-weight: 600;
+}
+
+.product-card .btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
 
 /* --- Info Sections --- */
 .info-sections {
-    background-color: var(--white); /* خلفية بيضاء لتميز القسم */
-    padding: 60px 0; /* مسافة داخلية */
+    background-color: var(--white-pure);
+    padding: var(--spacing-xxl) 0;
 }
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 أعمدة أو أقل حسب الشاشة */
-    gap: 20px; /* المسافة بين البطاقات */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
     text-align: center;
 }
 
 .info-card {
-    background-color: var(--white); /* خلفية البطاقة بيضاء */
-    border-radius: var(--border-radius-md);
-    padding: 20px;
-    box-shadow: var(--shadow-light);
+    background-color: var(--white-pure);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg); /* بادينغ أكبر */
+    box-shadow: var(--index-shadow-light);
     transition: all var(--transition-speed) ease;
-    display: flex; /* لترتيب المحتوى عمودياً */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* محاذاة العناصر من الأعلى */
+    justify-content: flex-start;
+    border: 1px solid var(--border-color-light);
 }
 
 .info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-8px);
+    box-shadow: var(--index-shadow-medium);
+}
+
+.info-card i { /* أيقونات المعلومات */
+    font-size: 3.5em; /* حجم أكبر للأيقونات */
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    transition: transform var(--transition-speed) ease;
+}
+.info-card:hover i {
+    transform: rotateY(10deg) scale(1.05); /* تأثير ثلاثي الأبعاد بسيط */
 }
 
 .info-card-title {
-    color: var(--heading-color);
-    font-size: 1.5em; /* حجم أكبر للعناوين */
-    margin-bottom: 15px;
+    color: var(--black-text);
+    font-size: 1.8em; /* حجم أكبر للعناوين */
+    margin-bottom: var(--spacing-sm);
     font-weight: 700;
 }
 
-.info-card img {
-    max-width: 100%;
-    aspect-ratio: 1 / 1; /* لجعل الصور مربعة */
-    object-fit: cover; /* لضمان تغطية الصورة للمساحة دون تشويه */
-    border-radius: var(--border-radius-sm);
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
 .info-card p {
-    color: var(--text-color);
-    font-size: 0.9em;
-    line-height: 1.6;
-    margin-bottom: 0; /* لا مسافة سفلية إضافية للفقرة الأخيرة */
+    color: var(--light-gray-text);
+    font-size: 0.95em;
+    line-height: 1.7;
+    margin-bottom: 0;
 }
 
 /* --- About Us Short Section --- */
 .about-short {
-    background-color: var(--white);
-    padding: 100px 0; /* مسافة داخلية أكبر */
+    background-color: var(--white-pure);
+    padding: var(--spacing-xxl) 0;
 }
 
 .about-content {
     display: flex;
     align-items: center;
-    gap: 50px; /* مسافة أكبر بين الصورة والنص */
-    flex-wrap: wrap; /* للسماح للعناصر بالانتقال لسطر جديد */
+    gap: var(--spacing-xl); /* مسافة أكبر بين الصورة والنص */
+    flex-wrap: wrap;
 }
 
 .about-image {
-    flex: 1 1 400px; /* مرن، ينكمش، يبدأ من 400px */
+    flex: 1 1 450px; /* مرن، ينكمش، يبدأ من 450px */
     max-width: 50%;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-medium);
-    aspect-ratio: 1 / 1; /* لجعل الصورة مربعة */
-    object-fit: cover; /* لملء الحاوية */
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--index-shadow-medium);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 1px solid var(--border-color-medium);
 }
 
 .about-text {
-    flex: 1 1 400px; /* مرن، ينكمش، يبدأ من 400px */
+    flex: 1 1 450px;
 }
 
 .about-text .section-title {
-    text-align: start; /* محاذاة لليمين */
+    text-align: start;
     margin-right: 0;
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-md);
 }
 .about-text .section-title::after {
     left: auto;
     right: 0;
-    transform: none; /* إزالة التحويل */
+    transform: none;
 }
 
 .about-text p {
-    font-size: 1.1em;
-    line-height: 1.9; /* زيادة تباعد الأسطر */
-    margin-bottom: 25px;
-    color: var(--text-color);
+    font-size: 1.15em; /* حجم أكبر للفقرة */
+    line-height: 2; /* زيادة تباعد الأسطر */
+    margin-bottom: var(--spacing-lg);
+    color: var(--dark-gray-text);
 }
 
 .about-text .btn {
-    margin-top: 15px;
+    margin-top: var(--spacing-sm);
 }
 
 /* --- Testimonials Section --- */
 .testimonials-section {
-    background-color: var(--light-bg); /* خلفية فاتحة للقسم */
-    padding: 100px 0;
+    background-color: var(--primary-color-light); /* خلفية بلون زهري فاتح جداً */
+    padding: var(--spacing-xxl) 0;
 }
 
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: var(--spacing-lg);
 }
 
 .testimonial-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius-md);
-    padding: 30px;
-    box-shadow: var(--shadow-light);
+    background-color: var(--white-pure);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--index-shadow-light);
     text-align: center;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--border-color-light);
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-8px);
+    box-shadow: var(--index-shadow-medium);
 }
 
 .testimonial-card .quote-icon {
-    font-size: 2.5em;
-    color: var(--primary-color); /* لون الأيقونة */
-    margin-bottom: 20px;
+    font-size: 3em; /* حجم أكبر */
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
 }
 
 .testimonial-card p {
-    font-size: 1.05em;
-    line-height: 1.8;
-    color: var(--text-color);
-    margin-bottom: 25px;
-    font-style: italic; /* لجعل النص مائلاً */
+    font-size: 1.1em;
+    line-height: 1.9;
+    color: var(--dark-gray-text);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
 }
 
 .reviewer-info h4 {
-    font-size: 1.2em;
-    color: var(--heading-color);
-    margin-bottom: 5px;
+    font-size: 1.3em; /* حجم أكبر */
+    color: var(--black-text);
+    margin-bottom: var(--spacing-xs);
     font-weight: 700;
 }
 
 .reviewer-info span {
-    font-size: 0.9em;
-    color: var(--primary-color); /* لون الوصف */
-    display: block; /* ليكون في سطر منفصل */
+    font-size: 1em;
+    color: var(--primary-color);
+    display: block;
 }
 
 /* --- Responsive Adjustments for Home Page --- */
 @media (max-width: 992px) {
     .hero-section {
-        padding: 90px 0;
+        padding: 120px 0;
+        min-height: 50vh;
     }
     .hero-content h1 {
-        font-size: 3.5em;
+        font-size: 4em;
     }
     .hero-content p {
-        font-size: 1.2em;
-        margin-bottom: 30px;
+        font-size: 1.3em;
+        margin-bottom: var(--spacing-md);
     }
     .hero-content .btn {
-        font-size: 1.1em;
-        padding: 12px 30px;
+        font-size: 1.2em;
+        padding: 15px 35px;
     }
 
     .section-title {
-        font-size: 2.8em;
-        margin-bottom: 50px;
+        font-size: 3em;
+        margin-bottom: var(--spacing-xl);
+    }
+    .section-title::after {
+        width: 100px;
+        height: 5px;
     }
     .section-padding {
-        padding: 80px 0;
+        padding: var(--spacing-xxl) 0;
     }
 
     .category-card {
-        padding: 15px; /* تقليل البادينغ */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* تصغير حجم الكارد قليلاً */
     }
     .category-overlay h3 {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 
     .about-short {
-        padding: 80px 0;
+        padding: var(--spacing-xxl) 0;
     }
     .about-content {
-        flex-direction: column; /* جعل الصورة والنص فوق بعض */
+        flex-direction: column;
         text-align: center;
-        gap: 30px;
+        gap: var(--spacing-lg);
     }
     .about-image {
-        max-width: 80%; /* زيادة عرض الصورة */
+        max-width: 90%;
+        flex: 1 1 350px;
     }
     .about-text {
         max-width: 100%;
+        padding: 0 var(--spacing-md);
     }
     .about-text .section-title {
         text-align: center;
@@ -486,59 +536,93 @@
     }
 
     .info-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* تعديل للعرض الأقل */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .info-card i {
+        font-size: 3em;
+    }
+    .info-card-title {
+        font-size: 1.6em;
     }
 }
 
 @media (max-width: 768px) {
     .hero-section {
-        padding: 70px 0;
+        padding: 100px 0;
+        min-height: 45vh;
     }
     .hero-content h1 {
-        font-size: 2.8em;
+        font-size: 3.2em;
     }
     .hero-content p {
-        font-size: 1em;
-        margin-bottom: 25px;
+        font-size: 1.1em;
+        margin-bottom: var(--spacing-md);
     }
     .hero-content .btn {
-        padding: 10px 25px;
-        font-size: 1em;
+        font-size: 1.1em;
+        padding: 12px 30px;
     }
 
     .section-title {
-        font-size: 2.2em;
-        margin-bottom: 40px;
+        font-size: 2.5em;
+        margin-bottom: var(--spacing-lg);
+    }
+    .section-title::after {
+        width: 80px;
+        height: 4px;
     }
     .section-padding {
-        padding: 60px 0;
+        padding: var(--spacing-xl) 0;
     }
 
     /* أنماط مشتركة للأقسام القابلة للتمرير على الموبايل */
+    .scrollable-section-wrapper {
+        padding-top: 0; /* إزالة البادينغ العلوي هنا */
+        padding-bottom: var(--spacing-md);
+    }
+
+    .scroll-buttons {
+        display: none; /* يتم التحكم بها عن طريق JS */
+    }
+
     .categories-grid,
-    .featured-products-grid { /* طبق نفس الأنماط على المنتجات الرائجة */
-        display: flex; /* تحويل إلى فليكس بوكس */
-        overflow-x: auto; /* تمكين التمرير الأفقي */
-        -webkit-overflow-scrolling: touch; /* لتحسين التمرير على iOS */
-        scroll-snap-type: x mandatory; /* لجعل البطاقات تلتصق عند التمرير */
-        justify-content: flex-start; /* محاذاة البداية لتسهيل التمرير */
-        padding-bottom: 15px; /* مسافة للظل أو شريط التمرير */
-        padding-inline-start: 15px; /* مسافة بادئة من اليمين للحاوية */
-        padding-inline-end: 15px; /* مسافة بادئة من اليسار للحاوية */
+    .featured-products-grid {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        justify-content: flex-start;
+        padding-bottom: var(--spacing-sm); /* مسافة لشريط التمرير */
+        padding-inline-start: var(--spacing-md); /* مسافة بادئة من اليمين للحاوية */
+        padding-inline-end: var(--spacing-md); /* مسافة بادئة من اليسار للحاوية */
+        gap: var(--spacing-md); /* 20px بين البطاقات */
     }
 
     .categories-grid::-webkit-scrollbar,
     .featured-products-grid::-webkit-scrollbar {
-        display: none; /* إخفاء شريط التمرير في المتصفحات المستندة إلى WebKit */
+        height: 8px; /* سمك شريط التمرير */
+        background: transparent; /* خلفية شفافة */
     }
 
+    .categories-grid::-webkit-scrollbar-thumb,
+    .featured-products-grid::-webkit-scrollbar-thumb {
+        background: var(--primary-color-light); /* لون زهري فاتح للمقبض */
+        border-radius: var(--border-radius-sm);
+        border: 1px solid var(--border-color-light); /* حدود خفيفة */
+    }
+    .categories-grid::-webkit-scrollbar-thumb:hover,
+    .featured-products-grid::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-color); /* لون زهري أغمق عند التحويم */
+    }
+
+
     .category-card,
-    .product-card { /* طبق نفس الأنماط على بطاقات المنتجات */
-        flex: 0 0 auto; /* منع البطاقات من الانكماش والتوسع */
-        width: 80%; /* تحديد عرض البطاقة لتظهر بطاقة ونصف مثلاً */
-        max-width: 300px; /* ضمان عدم تجاوز عرض معين */
-        margin-inline-end: 20px; /* مسافة بين البطاقات */
-        scroll-snap-align: center; /* توسيط البطاقة عند التمرير */
+    .product-card {
+        flex: 0 0 auto;
+        width: 85%; /* تحديد عرض البطاقة لتظهر بطاقة ونصف تقريباً */
+        max-width: 350px; /* ضمان عدم تجاوز عرض معين */
+        scroll-snap-align: center;
+        margin-inline-end: 0; /* إزالة هامش الـ grid */
     }
     /* لإزالة الهامش الأخير في كل قائمة تمرير */
     .categories-grid .category-card:last-child,
@@ -550,80 +634,131 @@
     .categories-grid::before,
     .featured-products-grid::before {
         content: '';
-        flex: 0 0 calc(50% - (80% / 2)); /* يحسب المسافة لجعل العنصر الأول في المنتصف */
-        margin-right: 0; /* تأكد من عدم وجود تداخل */
-        order: -1; /* لضمان ظهور العنصر الوهمي في البداية */
+        flex: 0 0 calc(50% - (85% / 2)); /* يحسب المسافة لجعل العنصر الأول في المنتصف */
+        margin-right: 0;
+        order: -1;
     }
 
     .categories-grid::after,
     .featured-products-grid::after {
         content: '';
-        flex: 0 0 calc(50% - (80% / 2)); /* نفس المسافة للطرف الآخر */
-        margin-left: 0; /* تأكد من عدم وجود تداخل */
+        flex: 0 0 calc(50% - (85% / 2));
+        margin-left: 0;
     }
     
 
     .category-overlay h3 {
-        font-size: 1.6em;
+        font-size: 1.5em;
     }
 
-    /* باقي التعديلات كما هي */
+    .product-card img {
+        height: 180px;
+    }
+    .product-card h4 {
+        font-size: 1.2em;
+    }
+    .product-card .price {
+        font-size: 1.1em;
+    }
+    .product-card .btn {
+        padding: 8px 18px;
+    }
+
     .testimonials-grid,
     .info-grid {
-        grid-template-columns: 1fr; /* عمود واحد في الشاشات الأصغر */
+        grid-template-columns: 1fr;
     }
+    .info-card i {
+        font-size: 2.8em;
+    }
+    .info-card-title {
+        font-size: 1.4em;
+    }
+
     .about-short {
-        padding: 60px 0;
+        padding: var(--spacing-xl) 0;
     }
     .about-image {
-        max-width: 90%;
+        max-width: 95%;
     }
     .about-text p {
-        font-size: 0.95em;
-        margin-bottom: 20px;
+        font-size: 1em;
+        margin-bottom: var(--spacing-md);
     }
 }
 
 @media (max-width: 480px) {
     .hero-section {
-        padding: 50px 0;
+        padding: 80px 0;
+        min-height: 40vh;
     }
     .hero-content h1 {
-        font-size: 2.2em;
+        font-size: 2.5em;
     }
     .hero-content p {
         font-size: 0.9em;
     }
     .hero-content .btn {
-        padding: 8px 20px;
-        font-size: 0.9em;
+        padding: 10px 25px;
+        font-size: 1em;
     }
 
     .section-title {
-        font-size: 1.8em;
-        margin-bottom: 30px;
+        font-size: 2em;
+        margin-bottom: var(--spacing-md);
+    }
+    .section-title::after {
+        width: 60px;
+        height: 3px;
     }
     .section-padding {
-        padding: 40px 0;
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .category-card,
+    .product-card {
+        width: 90%; /* زيادة عرض البطاقة لتناسب الشاشات الأصغر جداً */
+    }
+    .categories-grid::before,
+    .featured-products-grid::before {
+        flex: 0 0 calc(50% - (90% / 2));
+    }
+    .categories-grid::after,
+    .featured-products-grid::after {
+        flex: 0 0 calc(50% - (90% / 2));
+    }
+
+    .product-card img {
+        height: 160px;
+    }
+    .product-card h4 {
+        font-size: 1.1em;
+    }
+
+    .info-card {
+        padding: var(--spacing-md);
+    }
+    .info-card i {
+        font-size: 2.5em;
+    }
+    .info-card-title {
+        font-size: 1.2em;
     }
 
     .about-image {
         max-width: 100%;
     }
-    
-    /* تعديل إضافي لعرض البطاقات على شاشات أصغر جداً */
-    .category-card,
-    .product-card {
-        width: 90%; /* زيادة عرض البطاقة لتناسب الشاشات الأصغر */
-    }
-    /* تعديل حساب المسافة الوهمية لشاشات 480px */
-    .categories-grid::before,
-    .featured-products-grid::before {
-        flex: 0 0 calc(50% - (90% / 2)); /* يحسب المسافة لجعل العنصر الأول في المنتصف بناءً على 90% */
+    .about-text p {
+        font-size: 0.9em;
     }
 
-    .categories-grid::after,
-    .featured-products-grid::after {
-        flex: 0 0 calc(50% - (90% / 2));
+    .testimonial-card {
+        padding: var(--spacing-md);
+    }
+    .testimonial-card p {
+        font-size: 1em;
+    }
+    .reviewer-info h4 {
+        font-size: 1.1em;
     }
 }

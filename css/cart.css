@@ -1,15 +1,21 @@
-/* css/cart.css */
+/*
+ * Nour Stor - Cart Page CSS File
+ * Author: [Your Name/Nour]
+ * Date: July 2025
+ * Description: Styles for the shopping cart page, including cart items,
+ * summary, and payment modal, ensuring a modern and responsive design.
+ */
 
 /* --- Page Title --- */
 .page-title {
-    font-size: 3.2em; /* حجم أكبر قليلاً */
+    font-size: 3.2em; /* Slightly larger heading */
     color: var(--heading-color);
     text-align: center;
-    margin-bottom: 60px; /* مسافة سفلية أكبر */
+    margin-bottom: 60px; /* More bottom spacing */
     position: relative;
-    padding-bottom: 20px; /* مسافة للخط السفلي */
-    font-weight: 900; /* جعل العنوان أكثر جرأة */
-    letter-spacing: 1px; /* تباعد بسيط بين الحروف */
+    padding-bottom: 20px; /* Space for the bottom line */
+    font-weight: 900; /* Bolder title */
+    letter-spacing: 1px; /* Subtle letter spacing */
 }
 
 .page-title::after {
@@ -18,8 +24,8 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; /* عرض أكبر للخط */
-    height: 5px; /* سمك أكبر للخط */
+    width: 100px; /* Wider underline */
+    height: 5px; /* Thicker underline */
     background-color: var(--primary-color);
     border-radius: 3px;
 }
@@ -27,130 +33,133 @@
 /* --- Cart Content Layout --- */
 .cart-content {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* عمود لعناصر السلة وعمود للملخص */
-    gap: 50px; /* فجوة أكبر بين العمودين */
-    align-items: start;
+    grid-template-columns: 2fr 1fr; /* 2/3 for items, 1/3 for summary */
+    gap: 50px; /* Larger gap between columns */
+    align-items: start; /* Align content from the top */
 }
 
-/* --- Cart Items Container --- */
+/* --- Cart Items Container (Left Column) --- */
 .cart-items {
-    background-color: var(--white);
-    border-radius: var(--border-radius-lg); /* زوايا مستديرة أكثر */
-    box-shadow: var(--shadow-medium); /* ظل أوضح */
-    padding: 35px; /* مساحة داخلية أكبر */
-    overflow: hidden; /* للتأكد من أن الزوايا المستديرة تظهر بشكل صحيح */
+    background-color: var(--white-pure); /* Pure white background */
+    border-radius: var(--border-radius-lg); /* More rounded corners */
+    box-shadow: var(--shadow-md); /* Clearer shadow */
+    padding: 35px; /* More internal space */
+    overflow: hidden; /* Ensures rounded corners are visible */
+    border: 1px solid var(--border-color-light); /* Subtle border */
 }
 
 .empty-cart-message {
     text-align: center;
-    font-size: 1.3em; /* نص أوضح */
-    color: var(--gray);
-    padding: 60px 0; /* مسافة داخلية أكبر */
+    font-size: 1.3em; /* Clearer text */
+    color: var(--light-gray-text);
+    padding: 60px 0; /* More internal spacing */
     font-weight: 500;
 }
 
 .empty-cart-message a {
     color: var(--primary-color);
-    font-weight: 700; /* جعل الرابط أكثر جرأة */
-    text-decoration: none; /* إزالة الخط السفلي الافتراضي */
-    transition: color 0.3s ease;
+    font-weight: 700; /* Bolder link */
+    text-decoration: none; /* Remove default underline */
+    transition: color var(--transition-speed);
 }
 .empty-cart-message a:hover {
-    color: var(--secondary-color); /* تغيير اللون عند التحويم */
-    text-decoration: underline; /* إضافة خط سفلي عند التحويم */
+    color: var(--secondary-color); /* Change color on hover */
+    text-decoration: underline; /* Add underline on hover */
 }
 
 /* --- Individual Cart Item Card --- */
 .cart-item-card {
     display: flex;
     align-items: center;
-    gap: 30px; /* مسافة أكبر بين العناصر */
-    padding: 25px 0; /* مسافة داخلية أكبر */
-    border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.3s ease; /* تأثير عند التحويم */
+    gap: 30px; /* More space between elements */
+    padding: 25px 0; /* More internal padding */
+    border-bottom: 1px solid var(--border-color-medium); /* Separator line */
+    transition: background-color var(--transition-speed);
 }
 
 .cart-item-card:hover {
-    background-color: var(--light-bg); /* خلفية خفيفة عند التحويم */
+    background-color: var(--extra-light-gray); /* Light background on hover */
 }
 
 .cart-item-card:last-child {
-    border-bottom: none; /* إزالة الحدود للعنصر الأخير */
+    border-bottom: none; /* Remove border for the last item */
 }
 
 .cart-item-image {
-    width: 130px; /* حجم أكبر قليلاً */
+    width: 130px; /* Slightly larger image size */
     height: 130px;
-    border-radius: var(--border-radius-md); /* زوايا مستديرة أكثر */
+    border-radius: var(--border-radius-md); /* More rounded corners */
     overflow: hidden;
-    flex-shrink: 0;
-    box-shadow: var(--shadow-light); /* ظل خفيف */
+    flex-shrink: 0; /* Prevent image from shrinking */
+    box-shadow: var(--shadow-sm); /* Light shadow */
 }
 
 .cart-item-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Cover the area */
     object-position: center;
 }
 
 .cart-item-details {
-    flex-grow: 1;
+    flex-grow: 1; /* Allows details to take available space */
 }
 
 .cart-item-details .item-name {
-    font-size: 1.6em; /* حجم أكبر */
+    font-size: 1.6em; /* Larger size */
     color: var(--heading-color);
-    margin-bottom: 10px; /* مسافة أكبر */
-    font-weight: 800; /* أكثر جرأة */
+    margin-bottom: 10px; /* More spacing */
+    font-weight: 800; /* Bolder */
     line-height: 1.3;
 }
 
 .cart-item-details .item-price {
-    font-size: 1.3em; /* حجم أكبر */
+    font-size: 1.3em; /* Larger size */
     color: var(--primary-color);
-    font-weight: 900; /* أكثر جرأة */
+    font-weight: 900; /* Bolder */
+    direction: ltr; /* Ensure price numbers are LTR even in RTL context */
+    text-align: right;
 }
 
 .cart-item-actions {
     display: flex;
     align-items: center;
-    gap: 20px; /* مسافة أكبر */
-    flex-shrink: 0;
+    gap: 20px; /* More space */
+    flex-shrink: 0; /* Prevent actions from shrinking */
 }
 
 .cart-item-actions .quantity-control {
     display: flex;
     align-items: center;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg); /* زوايا مستديرة أكثر للتحكم بالكمية */
+    border: 1px solid var(--border-color-medium);
+    border-radius: var(--border-radius-lg); /* More rounded for quantity control */
     overflow: hidden;
-    background-color: var(--white);
-    box-shadow: var(--shadow-extra-light);
+    background-color: var(--white-pure);
+    box-shadow: var(--shadow-xs);
 }
 
 .cart-item-actions .quantity-control button {
-    background-color: var(--light-bg);
+    background-color: var(--extra-light-gray);
     border: none;
-    padding: 10px 16px; /* بادينغ أكبر */
-    font-size: 1.2em; /* حجم خط أكبر */
+    padding: 10px 16px; /* Larger padding */
+    font-size: 1.2em; /* Larger font size */
     cursor: pointer;
     color: var(--primary-color);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color var(--transition-speed), transform 0.2s ease;
 }
 
 .cart-item-actions .quantity-control button:hover {
-    background-color: var(--primary-color-light); /* لون فاتح عند التحويم */
-    transform: scale(1.05); /* تأثير تكبير بسيط */
-    color: var(--white); /* تغيير لون النص */
+    background-color: var(--primary-color-light); /* Lighter primary color on hover */
+    transform: scale(1.05); /* Slight scale effect */
+    color: var(--white-pure); /* Change text color */
 }
 
-.cart-item-actions .quantity-control span {
-    padding: 10px 18px; /* بادينغ أكبر */
-    font-size: 1.1em; /* حجم خط أكبر */
-    font-weight: 700; /* أكثر جرأة */
+.cart-item-actions .quantity-control span { /* For displaying quantity if not an input */
+    padding: 10px 18px; /* Larger padding */
+    font-size: 1.1em; /* Larger font size */
+    font-weight: 700; /* Bolder */
     color: var(--heading-color);
-    min-width: 45px; /* عرض أدنى أكبر */
+    min-width: 45px; /* Larger minimum width */
     text-align: center;
 }
 
@@ -159,54 +168,55 @@
     font-size: 1.1em;
     font-weight: 700;
     color: var(--heading-color);
-    width: 60px; /* عرض ثابت لحقل الكمية */
+    width: 60px; /* Fixed width for quantity input */
     text-align: center;
     border: none;
-    background-color: transparent; /* خلفية شفافة */
-    -moz-appearance: textfield; /* لإزالة أسهم المتصفحات في فايرفوكس */
-    outline: none; /* إزالة الإطار عند التركيز */
+    background-color: transparent; /* Transparent background */
+    -moz-appearance: textfield; /* Remove arrows for Firefox */
+    outline: none; /* Remove focus outline */
 }
+/* Remove arrows for Webkit browsers (Chrome, Safari) */
 .cart-item-actions .quantity-control input[type="number"]::-webkit-outer-spin-button,
 .cart-item-actions .quantity-control input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-
 .cart-item-actions .remove-item-btn {
     background: none;
     border: none;
-    color: #e74c3c; /* أحمر للحذف */
-    font-size: 1.6em; /* حجم أكبر قليلاً */
+    color: var(--danger-color); /* Red for delete */
+    font-size: 1.6em; /* Slightly larger icon */
     cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
-    padding: 5px; /* لإعطاء مساحة للنقر */
+    transition: color var(--transition-speed), transform var(--transition-speed);
+    padding: 5px; /* Provide clickable area */
 }
 
 .cart-item-actions .remove-item-btn:hover {
-    color: #c0392b; /* أحمر أغمق عند التحويم */
-    transform: scale(1.2) rotate(5deg); /* تأثير دوران وتكبير */
+    color: var(--danger-color-dark); /* Darker red on hover */
+    transform: scale(1.2) rotate(5deg); /* Rotate and scale effect */
 }
 
-/* --- Cart Summary --- */
+/* --- Cart Summary (Right Column) --- */
 .cart-summary {
-    background-color: var(--white);
-    border-radius: var(--border-radius-lg); /* زوايا مستديرة أكثر */
-    box-shadow: var(--shadow-medium); /* ظل أوضح */
-    padding: 35px; /* مساحة داخلية أكبر */
-    position: sticky;
-    top: 100px;
-    display: flex; /* لترتيب العناصر الداخلية */
-    flex-direction: column; /* جعلها عمودية */
+    background-color: var(--white-pure);
+    border-radius: var(--border-radius-lg); /* More rounded corners */
+    box-shadow: var(--shadow-md); /* Clearer shadow */
+    padding: 35px; /* More internal space */
+    position: sticky; /* Sticky positioning for summary */
+    top: 100px; /* Stay fixed when scrolling */
+    display: flex; /* Flexbox for internal element arrangement */
+    flex-direction: column; /* Stack vertically */
+    border: 1px solid var(--border-color-light); /* Subtle border */
 }
 
 .cart-summary h2 {
-    font-size: 2em; /* حجم أكبر */
+    font-size: 2em; /* Larger size */
     color: var(--heading-color);
-    margin-bottom: 30px; /* مسافة أكبر */
+    margin-bottom: 30px; /* More spacing */
     text-align: center;
     position: relative;
-    padding-bottom: 18px; /* مسافة للخط السفلي */
+    padding-bottom: 18px; /* Space for the bottom line */
     font-weight: 800;
 }
 
@@ -216,8 +226,8 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 70px; /* عرض أكبر للخط */
-    height: 4px; /* سمك أكبر للخط */
+    width: 70px; /* Wider underline */
+    height: 4px; /* Thicker underline */
     background-color: var(--secondary-color);
     border-radius: 2px;
 }
@@ -225,75 +235,76 @@
 .cart-summary .summary-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px; /* مسافة أكبر بين الصفوف */
-    font-size: 1.2em; /* حجم خط أكبر */
-    color: var(--text-color);
+    margin-bottom: 20px; /* More space between rows */
+    font-size: 1.2em; /* Larger font size */
+    color: var(--dark-gray-text);
     padding-bottom: 5px;
-    border-bottom: 1px dotted rgba(var(--text-rgb), 0.2); /* خط منقط خفيف */
+    border-bottom: 1px dotted var(--border-color-medium); /* Light dotted line */
 }
-.cart-summary .summary-row:last-of-type { /* استهداف ما قبل الإجمالي الكلي */
+.cart-summary .summary-row:last-of-type { /* Target the row before total */
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 
-
 .cart-summary .summary-row span:last-child {
-    font-weight: 700; /* أكثر جرأة */
+    font-weight: 700; /* Bolder */
     color: var(--heading-color);
+    direction: ltr; /* Ensure numbers are LTR */
 }
 
 .cart-summary .total-row {
-    font-size: 1.7em; /* حجم أكبر */
-    font-weight: 900; /* أكثر جرأة */
+    font-size: 1.7em; /* Larger size */
+    font-weight: 900; /* Bolder */
     color: var(--primary-color);
-    border-top: 2px solid var(--primary-color); /* خط صلب مميز */
-    padding-top: 25px; /* مسافة أكبر */
-    margin-top: 25px; /* مسافة أكبر */
+    border-top: 2px solid var(--primary-color); /* Strong top border */
+    padding-top: 25px; /* More spacing */
+    margin-top: 25px; /* More spacing */
 }
 
 .cart-summary .total-row span:last-child {
     color: var(--primary-color);
+    direction: ltr; /* Ensure numbers are LTR */
 }
 
 .cart-summary .btn {
     display: block;
     width: 100%;
-    margin-top: 30px; /* مسافة أكبر بعد الإجمالي */
-    padding: 18px 25px; /* بادينغ أكبر للأزرار */
-    font-size: 1.2em; /* حجم خط أكبر */
-    border-radius: 50px; /* أزرار بيضاوية للملخص */
+    margin-top: 30px; /* More space after total */
+    padding: 18px 25px; /* Larger padding for buttons */
+    font-size: 1.2em; /* Larger font size */
+    border-radius: 50px; /* Pill shape for summary buttons */
     font-weight: 700;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed);
 }
 
 .cart-summary .checkout-btn {
     background-color: var(--primary-color);
-    color: var(--white);
-    box-shadow: var(--shadow-medium);
+    color: var(--white-pure);
+    box-shadow: var(--shadow-md);
 }
 .cart-summary .checkout-btn:hover {
-    background-color: var(--primary-color-dark); /* لون أغمق عند التحويم */
-    box-shadow: var(--shadow-strong); /* ظل أقوى */
-    transform: translateY(-3px); /* تأثير رفع */
+    background-color: var(--primary-color-dark); /* Darker color on hover */
+    box-shadow: var(--shadow-lg); /* Stronger shadow */
+    transform: translateY(-3px); /* Lift effect */
 }
 
 .cart-summary .checkout-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    background-color: var(--gray);
-    box-shadow: none; /* إزالة الظل عند التعطيل */
-    transform: translateY(0); /* إلغاء تأثير الرفع */
+    background-color: var(--gray-light);
+    box-shadow: none; /* Remove shadow when disabled */
+    transform: translateY(0); /* Remove lift effect */
 }
 
 .cart-summary .continue-shopping-btn {
-    background-color: var(--light-bg);
+    background-color: var(--extra-light-gray);
     color: var(--heading-color);
-    border: 1px solid var(--border-color);
-    margin-top: 15px; /* مسافة بين الأزرار */
+    border: 1px solid var(--border-color-medium);
+    margin-top: 15px; /* Space between buttons */
 }
 .cart-summary .continue-shopping-btn:hover {
-    background-color: var(--border-color);
+    background-color: var(--border-color-medium);
     color: var(--primary-color);
     transform: translateY(-2px);
 }
@@ -301,32 +312,34 @@
 
 /* --- Payment Modal Styles --- */
 .payment-modal {
-    display: none; /* مخفي افتراضياً */
-    position: fixed; /* يبقى في مكانه عند التمرير */
-    z-index: 1000; /* ليكون فوق كل شيء آخر */
+    display: none; /* Hidden by default */
+    position: fixed; /* Stays in place when scrolling */
+    z-index: 1000; /* On top of everything else */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* تمكين التمرير إذا كان المحتوى كبيراً */
-    background-color: rgba(0,0,0,0.6); /* خلفية شبه شفافة */
+    overflow: auto; /* Enable scrolling if content is too large */
+    background-color: rgba(0,0,0,0.6); /* Semi-transparent black background */
+    display: flex; /* Use flexbox to center content */
     justify-content: center;
     align-items: center;
     padding: 20px;
-    box-sizing: border-box; /* لضمان أن البادينغ لا يزيد العرض الكلي */
+    box-sizing: border-box; /* Ensures padding doesn't increase total width/height */
 }
 
 .payment-modal-content {
-    background-color: var(--white);
-    margin: auto;
+    background-color: var(--white-pure);
+    margin: auto; /* Centering for non-flex fallback */
     padding: 30px;
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-strong); /* ظل قوي لجعله بارزاً */
+    box-shadow: var(--shadow-xl); /* Strong shadow to make it stand out */
     position: relative;
-    max-width: 600px; /* عرض أقصى للمودال */
-    width: 95%; /* مرونة في العرض */
+    max-width: 600px; /* Max width for the modal */
+    width: 95%; /* Responsive width */
     text-align: center;
-    animation: fadeIn 0.3s ease-out; /* تأثير ظهور */
+    animation: fadeIn 0.3s ease-out; /* Fade-in animation */
+    border: 1px solid var(--border-color-light); /* Subtle border */
 }
 
 @keyframes fadeIn {
@@ -342,7 +355,7 @@
     top: 15px;
     right: 25px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed);
 }
 
 .payment-modal .close-button:hover,
@@ -359,7 +372,7 @@
 
 .payment-modal .modal-instruction {
     font-size: 1.1em;
-    color: var(--text-color);
+    color: var(--dark-gray-text);
     margin-bottom: 15px;
     line-height: 1.6;
 }
@@ -367,23 +380,25 @@
 .payment-modal .modal-instruction #modal-total-price {
     font-weight: 700;
     color: var(--primary-color);
+    direction: ltr; /* Ensure price numbers are LTR */
 }
 
 .payment-modal .vodafone-cash-number {
     font-size: 1.8em;
     font-weight: 900;
     color: var(--primary-color-dark);
-    background-color: var(--light-bg);
+    background-color: var(--extra-light-gray);
     padding: 10px 20px;
     border-radius: var(--border-radius-md);
     display: inline-block;
     margin-bottom: 25px;
     letter-spacing: 1px;
+    direction: ltr; /* Ensure phone number is LTR */
 }
 
 .payment-modal .form-group {
     margin-bottom: 20px;
-    text-align: right; /* محاذاة لليمين للنصوص العربية */
+    text-align: right; /* Align labels/inputs to the right for RTL */
 }
 
 .payment-modal .form-group label {
@@ -398,24 +413,25 @@
 .payment-modal .form-group input[type="file"] {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color-medium);
     border-radius: var(--border-radius-md);
     font-size: 1em;
-    color: var(--text-color);
-    box-sizing: border-box;
+    color: var(--dark-gray-text);
+    box-sizing: border-box; /* Include padding in width */
+    background-color: var(--white-pure);
 }
 
 .payment-modal .form-group input[type="file"] {
-    padding-top: 10px; /* تعديل بسيط لملف الرفع */
+    padding-top: 10px; /* Slight adjustment for file input */
 }
 
 .payment-modal .form-group input::placeholder {
-    color: var(--gray);
+    color: var(--light-gray-text);
 }
 
 .payment-modal .file-hint {
     font-size: 0.85em;
-    color: var(--gray);
+    color: var(--light-gray-text);
     margin-top: 5px;
     text-align: right;
 }
@@ -427,75 +443,82 @@
     font-weight: 700;
     border-radius: 50px;
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--white-pure);
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color var(--transition-speed), transform 0.2s ease;
     margin-top: 20px;
+    box-shadow: var(--shadow-md);
 }
 
 .payment-modal #send-payment-proof-btn:hover {
     background-color: var(--primary-color-dark);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .payment-modal #send-payment-proof-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    background-color: var(--gray);
+    background-color: var(--gray-light);
     transform: translateY(0);
+    box-shadow: none;
 }
 
 .payment-modal .payment-note {
     font-size: 0.9em;
-    color: var(--gray);
+    color: var(--light-gray-text);
     margin-top: 25px;
 }
 
-/* Responsive adjustments for modal */
-@media (max-width: 768px) {
-    .payment-modal-content {
-        padding: 25px;
-    }
-    .payment-modal h2 {
-        font-size: 1.8em;
-    }
-    .payment-modal .vodafone-cash-number {
-        font-size: 1.6em;
-    }
-    .payment-modal #send-payment-proof-btn {
-        padding: 12px 20px;
-        font-size: 1em;
-    }
+/* --- Success Message Styles --- */
+.success-message {
+    display: none; /* Hidden by default */
+    background-color: var(--success-bg); /* Light green background */
+    color: var(--success-text); /* Dark green text */
+    border: 1px solid var(--success-border); /* Green border */
+    padding: 15px;
+    border-radius: var(--border-radius-md);
+    margin-top: 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0; /* For controlling visibility with transition */
+    transition: opacity 0.5s ease-in-out;
 }
 
+/* For showing the message */
+.success-message.show {
+    display: block;
+    opacity: 1;
+}
 
-/* --- Responsive Adjustments for general cart page (re-included for completeness) --- */
+/* --- Responsive Adjustments for general cart page --- */
 @media (max-width: 992px) {
     .cart-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack columns vertically on tablets */
         gap: 40px;
     }
     .cart-summary {
-        position: static;
-        padding: 30px; /* تعديل البادينغ */
+        position: static; /* Remove sticky behavior on smaller screens */
+        padding: 30px; /* Adjust padding */
     }
     .cart-items {
-        padding: 25px; /* تعديل البادينغ */
+        padding: 25px; /* Adjust padding */
     }
     .cart-item-card {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: center; /* Center content */
         text-align: center;
         padding: 20px 0;
         gap: 20px;
     }
     .cart-item-image {
-        margin-bottom: 0; /* إعادة تعيين */
+        margin-bottom: 0; /* Reset margin */
     }
     .cart-item-details {
         width: 100%;
-        margin-bottom: 0; /* إعادة تعيين */
+        margin-bottom: 0; /* Reset margin */
     }
     .cart-item-actions {
         width: 100%;
@@ -573,7 +596,7 @@
         margin-bottom: 25px;
     }
     .cart-item-card {
-        flex-direction: column;
+        flex-direction: column; /* Stack image, details, actions vertically */
         gap: 15px;
         padding: 15px 0;
     }
@@ -589,13 +612,13 @@
         font-size: 1.1em;
     }
     .cart-item-actions {
-        flex-direction: row; /* رجوع للأفقي إذا كانت الشاشة تسمح بذلك */
-        flex-wrap: wrap; /* للسماح بالعناصر بالالتفاف */
+        flex-direction: row; /* Allow horizontal layout if space permits */
+        flex-wrap: wrap; /* Allow wrapping of elements */
         gap: 10px;
         justify-content: center;
     }
     .cart-item-actions .quantity-control {
-        width: auto; /* السماح للعرض بالتكيف */
+        width: auto; /* Allow width to adjust to content */
     }
     .cart-item-actions .remove-item-btn {
         margin-top: 0;
@@ -618,25 +641,4 @@
         padding: 12px 15px;
         font-size: 1em;
     }
-}
-/* --- Success Message Styles --- */
-.success-message {
-    display: none; /* مخفي افتراضياً */
-    background-color: #d4edda; /* خلفية خضراء فاتحة */
-    color: #155724; /* نص أخضر داكن */
-    border: 1px solid #c3e6cb; /* حدود خضراء */
-    padding: 15px;
-    border-radius: var(--border-radius-md);
-    margin-top: 25px;
-    font-size: 1.1em;
-    font-weight: 600;
-    text-align: center;
-    opacity: 0; /* للتحكم بالظهور بالاختفاء */
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* For showing the message */
-.success-message.show {
-    display: block;
-    opacity: 1;
 }

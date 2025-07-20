@@ -10,18 +10,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="product-details-page">
+
     <header class="main-header">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="شعار المتجر">
+                <a href="index.html" class="logo" aria-label="الرئيسية - شعار متجر Nour Stor">
+                    <img src="./images/Logo.png" alt="شعار متجر Nour Stor"> 
                     <span>Nour Stor</span>
                 </a>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-
+                        <li><a href="./index.html" class="active">الرئيسية</a></li>
+                        <li><a href="./products.html">المنتجات</a></li>
+                        <li><a href="./about.html">عنا</a></li> 
                     </ul>
                 </nav>
                 <div class="header-icons">
@@ -33,14 +34,33 @@
                 </div>
             </div>
         </div>
-        <div class="mobile-nav">
-            <ul>
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="products.html">المنتجات</a></li>
-
-            </ul>
-        </div>
     </header>
+
+    <div class="overlay"></div>
+
+    <nav class="mobile-nav">
+        <button class="mobile-nav-close-btn" aria-label="إغلاق القائمة">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html" class="logo mobile-nav-logo" aria-label="الرئيسية - شعار متجر Nour Stor">
+            <img src="./images/Logo.png" alt="شعار متجر Nour Stor"> 
+            <span>Nour Stor</span>
+        </a>
+        <ul>
+                        <li><a href="./index.html" class="active">الرئيسية</a></li>
+                        <li><a href="./products.html">المنتجات</a></li>
+                        <li><a href="./about.html">عنا</a></li> 
+        </ul>
+        <div class="bottom-links">
+            <h3>تابعنا</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/groups/6310617595672327/?ref=share&mibextid=NSMWBT" target="_blank" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@nour._14?_t=ZS-8yBhwoUbvi3&_r=1" target="_blank" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/noor551mohamed?igsh=YzljYTk1ODg3Zg==‎‏" target="_blank" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://chat.whatsapp.com/H8qPRlrgfFv5qUt9Rj49Ru?mode=r_c" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </nav>
 
     <main>
         <section class="product-details section-padding">
@@ -83,30 +103,32 @@
         </section>
     </main>
 
-        <footer class="main-footer">
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column about-col">
                     <h3>Nour Stor</h3>
-                    <p>وجهتك الأولى للمنتجات اليدوية الفاخرة التي تجمع بين الأصالة والعصرية. نصنع الجمال بين يديك.</p>
+                    <p>وجهتك الأولى للمنتجات اليدوية الفاخرة المصنوعة من الخرز، والتي تجمع بين الأصالة والعصرية. نصنع الجمال بين يديك.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/groups/6310617595672327/?ref=share&mibextid=NSMWBT" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.tiktok.com/@nour._14?_t=ZS-8yBhwoUbvi3&_r=1" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/noor551mohamed?igsh=YzljYTk1ODg3Zg==‎‏" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
-                        <a href="https://chat.whatsapp.com/H8qPRlrgfFv5qUt9Rj49Ru?mode=r_c" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/groups/6310617595672327/?ref=share&mibextid=NSMWBT" target="_blank" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@nour._14?_t=ZS-8yBhwoUbvi3&_r=1" target="_blank" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/noor551mohamed?igsh=YzljYTk1ODg3Zg==‎‏" target="_blank" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="https://chat.whatsapp.com/H8qPRlrgfFv5qUt9Rj49Ru?mode=r_c" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>روابط سريعة</h3>
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="products.html">المنتجات</a></li>
-
+                        <li><a href="./index.html" class="active">الرئيسية</a></li>
+                        <li><a href="./products.html">المنتجات</a></li>
+                        <li><a href="./about.html">عنا</a></li> 
                     </ul>
                 </div>
-                    <div class="footer-column">
+                <div class="footer-column">
                     <h3>تواصل معنا</h3>
                     <p><i class="fas fa-phone-alt"></i> +201014750878</p>
+                    <p><i class="fas fa-envelope"></i> info@nourstor.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -118,5 +140,30 @@
     <script src="js/main.js"></script> 
     <script src="js/data.js"></script> 
     <script src="js/product-details.js"></script> 
+    <script>
+                document.addEventListener('DOMContentLoaded', () => {
+            const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const closeNavBtn = document.querySelector('.mobile-nav-close-btn');
+            const overlay = document.querySelector('.overlay');
+
+            if (menuToggleBtn && mobileNav && closeNavBtn && overlay) {
+                menuToggleBtn.addEventListener('click', () => {
+                    mobileNav.classList.add('active');
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // لمنع التمرير عند فتح القائمة
+                });
+
+                const closeMenu = () => {
+                    mobileNav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = ''; // لإعادة التمرير عند إغلاق القائمة
+                };
+
+                closeNavBtn.addEventListener('click', closeMenu);
+                overlay.addEventListener('click', closeMenu);
+            }
+        });
+    </script>
 </body>
 </html>

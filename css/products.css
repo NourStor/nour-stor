@@ -1,339 +1,795 @@
-/* css/products.css */
+/*
+ * Nour Stor - Products Page CSS File (Modern, Responsive, Uniform Design)
+ * Author: [Your Name/Nour]
+ * Date: July 2025
+ * Description: Complete styles for the products listing page,
+ * achieving a modern, responsive, and aesthetically pleasing design with
+ * perfectly uniform product cards, consistent images (no gaps), and optimized content layout.
+ */
 
-/* أضف متغيرات الألوان والظلال من main.css أو هنا */
+/* --- CSS Variables (Should ideally be in main.css for global use) --- */
+/* For standalone use, these are included here. If you have them in main.css,
+   you can safely remove this :root block from this file to avoid redundancy. */
 :root {
-    --primary-color: #F8BBD0;
-    --accent-color: #E1BEE7;
-    --heading-color: #333333;
-    --text-color: #555555;
-    --light-bg: #f9f9f9;
-    --white: #ffffff;
+    /* Colors */
+    --primary-color: #ff527b; /* Vivid Pink - Main brand color */
+    --primary-color-dark: #cc4262; /* Darker Pink for hover states */
+    --primary-color-light: #ffe0e9; /* Very light pink for backgrounds/accents */
+    --accent-color: #8c7ae6; /* Purple - Strong accent for buttons/highlights */
+    --secondary-accent: #6a5acdaa; /* Slightly darker purple for hover */
+
+    --white-pure: #ffffff;
+    --black-text: #222222; /* Main headings/strong text */
+    --dark-gray-text: #444444; /* General body text */
+    --light-gray-text: #777777; /* Secondary text, descriptions, inactive states */
+    --extra-light-gray: #f8f8f8; /* Light background for sections */
+
+    --border-color-light: #eeeeee;
+    --border-color-medium: #dddddd;
+    --border-color-dark: #cccccc;
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    --spacing-xxl: 60px; /* For large section padding */
+
+    /* Border Radii */
     --border-radius-sm: 8px;
     --border-radius-md: 15px;
-    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08);
-    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --border-radius-lg: 25px;
+    --border-radius-full: 50%; /* For perfect circles/ovals */
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    /* Transitions */
     --transition-speed: 0.3s ease-in-out;
+
+    /* Header height for sticky elements (adjust if your header has a different height) */
+    --header-height-desktop: 80px;
+    --header-height-mobile: 60px;
 }
 
-.products-listing {
-    background-color: var(--light-bg); /* خلفية القسم الرئيسية */
+/* --- Base Body Styling (Optional, might be in main.css) --- */
+/* If your main.css already sets basic font, line-height, etc., remove this. */
+body {
+    font-family: 'Cairo', sans-serif; /* Your preferred modern font like 'Inter', 'Roboto' */
+    line-height: 1.6;
+    color: var(--dark-gray-text);
+    background-color: var(--extra-light-gray);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: rtl; /* Ensure RTL for Arabic content */
+    text-align: right; /* Default text alignment for Arabic */
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
-.page-title {
-    font-size: 3em;
-    color: var(--heading-color);
+/* --- Global Utilities (Often in main.css, included for completeness) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md); /* Add horizontal padding for smaller screens */
+}
+.section-padding {
+    padding: var(--spacing-xxl) 0;
+}
+
+
+/* --- Products Hero Section (Header/Banner for products page) --- */
+.products-hero-section {
+    background: linear-gradient(135deg, var(--primary-color-light) 0%, var(--white-pure) 100%);
+    color: var(--dark-gray-text);
     text-align: center;
-    margin-bottom: 50px;
+    padding: 100px 0;
     position: relative;
-    padding-bottom: 15px;
-    font-weight: 800;
+    overflow: hidden; /* For background decorative elements */
 }
 
-.page-title::after {
+/* Background decorative shapes for modern aesthetic */
+.products-hero-section::before,
+.products-hero-section::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 5px;
-    background-color: var(--primary-color);
-    border-radius: 3px;
+    border-radius: var(--border-radius-full);
+    z-index: 0;
+    opacity: 0.5;
+}
+.products-hero-section::before {
+    top: -50px; right: -50px; /* Adjusted for RTL */
+    width: 200px; height: 200px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg);
+    animation: floatEffect 8s ease-in-out infinite alternate;
+}
+.products-hero-section::after {
+    bottom: -50px; left: -50px; /* Adjusted for RTL */
+    width: 150px; height: 150px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotate(-30deg);
+    animation: floatEffect 10s ease-in-out infinite alternate-reverse;
 }
 
+@keyframes floatEffect {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(20px, 15px) rotate(5deg); }
+}
+
+.products-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1; /* Ensures content is above background elements */
+}
+
+.products-hero-content h1 {
+    font-size: 4em;
+    margin-bottom: var(--spacing-md);
+    font-weight: 900;
+    color: var(--black-text);
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+}
+
+.products-hero-content p {
+    font-size: 1.3em;
+    color: var(--dark-gray-text);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+
+/* --- Products Listing Section (Main content area for products) --- */
+.products-listing {
+    background-color: var(--extra-light-gray);
+    padding: var(--spacing-xxl) 0;
+}
+
+/* --- Product Controls (Search & Sort Bar) --- */
 .product-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
-    flex-wrap: wrap; /* للسماح بالعناصر بالانتقال لسطر جديد */
-    gap: 20px; /* مسافة بين العناصر */
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    gap: var(--spacing-md);
+    background-color: var(--white-pure);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .search-bar {
     display: flex;
-    flex-grow: 1; /* للسماح لشريط البحث بالتمدد */
-    max-width: 400px;
+    flex-grow: 1;
+    max-width: 450px; /* Max width for desktop */
+    position: relative;
 }
 
 #productSearch {
     flex-grow: 1;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
-    font-size: 1em;
-    color: var(--text-color);
-    background-color: var(--white);
+    padding: 14px 20px;
+    border: 2px solid var(--border-color-medium);
+    border-radius: var(--border-radius-lg);
+    font-size: 1.05em;
+    color: var(--dark-gray-text);
+    background-color: var(--white-pure);
     outline: none;
-    transition: border-color var(--transition-speed);
+    transition: all var(--transition-speed);
+    padding-left: 50px; /* Space for search button/icon on the left for RTL */
 }
 
 #productSearch:focus {
     border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
 }
 
 #searchButton {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--white-pure);
     border: none;
-    padding: 12px 18px;
-    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+    padding: 0 18px;
+    border-radius: var(--border-radius-lg);
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color var(--transition-speed);
+    font-size: 1.2em;
+    transition: background-color var(--transition-speed), transform 0.2s ease;
+    position: absolute;
+    right: var(--spacing-xs); /* For RTL, search icon on the right */
+    top: 50%;
+    transform: translateY(-50%);
+    height: calc(100% - 8px); /* Make button slightly smaller than input */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
 }
 
 #searchButton:hover {
-    background-color: #d1a5b8; /* لون ثابت لتغميق اللون الأساسي */
+    background-color: var(--primary-color-dark);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.sort-by {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
 }
 
 .sort-by label {
-    color: var(--heading-color);
-    font-weight: 600;
-    margin-left: 10px;
+    color: var(--black-text);
+    font-weight: 700;
+    font-size: 1.05em;
 }
 
 #sortBy {
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius-sm);
-    background-color: var(--white);
-    color: var(--text-color);
+    padding: 12px 20px;
+    border: 2px solid var(--border-color-medium);
+    border-radius: var(--border-radius-lg);
+    background-color: var(--white-pure);
+    color: var(--dark-gray-text);
     font-size: 1em;
     cursor: pointer;
     outline: none;
+    transition: all var(--transition-speed);
+    -webkit-appearance: none; /* Remove default dropdown arrow */
+    -moz-appearance: none;
+    appearance: none;
+    /* Custom SVG arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff527b' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center; /* Position arrow on the right for RTL */
+    background-size: 18px;
+    padding-right: 45px; /* Adjust text padding to avoid arrow overlap */
 }
 
-/* Filters (aside) */
+#sortBy:hover,
+#sortBy:focus {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* --- Filters Sidebar --- */
+.products-layout {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start; /* Align filters to the top */
+}
+
 .product-filters {
-    width: 250px; /* عرض الفلاتر الجانبية */
-    padding: 20px;
-    background-color: var(--white);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-light);
+    width: 300px;
+    padding: var(--spacing-lg);
+    background-color: var(--white-pure);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    position: sticky; /* Makes filter sidebar stick when scrolling */
+    top: calc(var(--header-height-desktop) + var(--spacing-md)); /* Position below header */
+    z-index: 5; /* Ensure it stays above other content */
+    flex-shrink: 0; /* Prevents filters from shrinking if space is tight */
 }
 
 .filter-section {
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-lg);
 }
 
 .filter-section h2 {
-    font-size: 1.5em;
-    color: var(--heading-color);
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
+    font-size: 1.7em;
+    color: var(--black-text);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 3px solid var(--primary-color); /* Highlight for section titles */
+    padding-bottom: var(--spacing-sm);
+    font-weight: 800;
+}
+
+.category-list li {
+    margin-bottom: var(--spacing-xs);
 }
 
 .category-list li a {
-    display: block;
-    padding: 8px 0;
-    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--dark-gray-text);
     text-decoration: none;
-    transition: color var(--transition-speed);
-    font-size: 1.05em;
+    transition: all var(--transition-speed);
+    font-size: 1.1em;
+    border-radius: var(--border-radius-sm);
 }
 
 .category-list li a:hover,
 .category-list li a.active {
     color: var(--primary-color);
     font-weight: 700;
+    background-color: var(--primary-color-light);
+    transform: translateX(-5px); /* Subtle slide effect for RTL */
+}
+.category-list li a.active {
+    box-shadow: var(--shadow-sm);
+}
+.category-list li a .fa-solid {
+    font-size: 0.9em;
+    color: var(--light-gray-text);
+    transition: color var(--transition-speed);
+}
+.category-list li a:hover .fa-solid,
+.category-list li a.active .fa-solid {
+    color: var(--primary-color);
 }
 
+/* Price Range Filter */
 .price-filter .slider {
     width: 100%;
-    margin-bottom: 10px;
+    height: 8px;
+    background: var(--border-color-medium);
+    border-radius: var(--border-radius-md);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-bottom: var(--spacing-sm);
+    cursor: pointer;
+}
+
+.price-filter .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: var(--border-radius-full);
+    background: var(--primary-color);
+    cursor: grab;
+    border: 3px solid var(--white-pure);
+    box-shadow: var(--shadow-sm);
+    transition: background var(--transition-speed);
+}
+.price-filter .slider::-webkit-slider-thumb:hover {
+    background: var(--primary-color-dark);
 }
 
 .price-filter p {
     text-align: center;
-    color: var(--text-color);
-    margin-bottom: 15px;
+    color: var(--dark-gray-text);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1em;
+}
+.price-filter p span#priceValue {
+    color: var(--primary-color);
+    font-weight: 800;
 }
 
 .apply-price-filter {
     display: block;
     width: 100%;
-    padding: 10px;
-    text-align: center;
-    font-size: 1em;
-    /* ستكون الأزرار ذات تنسيق عام في main.css */
-}
-
-/* Products Grid */
-.products-layout {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start; /* محاذاة الفلاتر لأعلى */
-}
-
-.all-products-grid {
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-/* Product Card (will be generated by JS) */
-.product-card {
-    background-color: var(--white);
+    padding: 12px;
+    background-color: var(--accent-color);
+    color: var(--white-pure);
     border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-light);
-    padding: 20px;
+    font-weight: 700;
     text-align: center;
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+.apply-price-filter:hover {
+    background-color: var(--secondary-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+
+/* --- Products Grid (The main product display area) --- */
+.all-products-grid {
+    flex-grow: 1; /* Allows the grid to take available space */
+    display: grid;
+    /* Responsive grid columns: auto-fit creates as many columns as possible,
+       minmax ensures each column is at least 290px wide (on desktop)
+       and stretches to fill available space. */
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: var(--spacing-lg); /* Spacing between grid items (cards) */
+    justify-content: center; /* Centers items if there aren't enough to fill a row */
+    align-items: stretch; /* Ensures all cards in a row have the same height */
+}
+
+/* --- Product Card (The individual product display unit) --- */
+.product-card {
+    background-color: var(--white-pure);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md); /* Elegant shadow */
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    text-decoration: none; /* لضمان أن البطاقة ككل تبدو كلينك */
-    color: inherit; /* لتوريث لون النص */
+    text-decoration: none; /* For the anchor wrapping the card */
+    color: inherit;
+    display: flex; /* Use flexbox to organize internal elements vertically */
+    flex-direction: column;
+    overflow: hidden; /* Ensures nothing overflows the rounded corners */
+    border: 1px solid var(--border-color-light); /* Subtle border */
+    position: relative; /* For potential badges or overlays */
+}
+
+/* Make the whole card area clickable (if HTML allows) */
+.product-card > a {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* لدفع الزر للأسفل */
+    flex-grow: 1; /* Allow the link to grow and contain all product info */
+    color: inherit; /* Inherit text color for consistency */
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: var(--shadow-lg); /* Stronger shadow on hover */
 }
 
-/* التعديل هنا لصور المنتجات */
-.product-card img {
-    width: 100%; /* اجعل العرض 100% من حجم الحاوية */
-    height: 220px; /* حافظ على ارتفاع ثابت لجعلها مربعة أو شبه مربعة في البداية */
-    object-fit: cover; /* هذا يضمن تغطية الصورة للحاوية مع الحفاظ على نسبتها */
-    border-radius: var(--border-radius-sm);
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-/* حل بديل ومتقدم لجعلها مربعة تمامًا (إذا كنت لا تحتاج لدعم متصفحات قديمة جداً) */
-/* يمكنك إضافة هذا إذا أردت أن تكون الحاوية مربعة بغض النظر عن محتوى الصورة */
-.image-container {
+/* Image Container: Key for consistent, uniform image sizing without gaps */
+.product-card .image-container {
     width: 100%;
-    padding-bottom: 100%; /* هذا يجعل ارتفاع الحاوية مساويًا لعرضها، أي يجعلها مربعة */
-    position: relative;
-    overflow: hidden; /* لإخفاء أي جزء زائد من الصورة */
-    border-radius: var(--border-radius-sm);
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* The trick for making it perfectly square based on its width */
+    padding-bottom: 100%; /* Creates a square aspect ratio */
+    position: relative; /* Needed for absolute positioning of the image */
+    overflow: hidden; /* Crucial for cropping the image */
+    border-radius: var(--border-radius-md); /* Rounded corners for the image area */
+    box-shadow: var(--shadow-sm); /* Light shadow for the image itself */
+    flex-shrink: 0; /* Prevents image area from shrinking */
 }
 
-.image-container img {
+.product-card .image-container img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* يضمن أن الصورة تغطي المساحة المربعة */
+    /* The magic touch: Fills the entire square container, cropping if needed. No empty spaces! */
+    object-fit: cover;
+    object-position: center; /* Centers the image within the cropped area */
+    transition: transform 0.4s ease; /* Smooth zoom on hover */
 }
 
+.product-card:hover .image-container img {
+    transform: scale(1.05); /* Subtle zoom on image when hovering the card */
+}
+
+/* Product Information Wrapper: Manages text content and price */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes content evenly */
+    padding: var(--spacing-md); /* Internal padding for text */
+    flex-grow: 1; /* Allows this section to take up available vertical space */
+    text-align: center; /* Center align text inside */
+}
 
 .product-card h4 {
-    font-size: 1.4em;
-    color: var(--heading-color);
-    margin-bottom: 10px;
-    font-weight: 700;
+    font-size: 1.5em;
+    color: var(--black-text);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 800;
+    line-height: 1.3;
+    /* Ensure uniform height for titles, even if one is shorter */
+    min-height: 2.6em; /* Approx. 2 lines of text */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Restrict to 2 lines */
+    -webkit-box-orient: vertical;
 }
 
 .product-card p {
-    font-size: 0.95em;
-    color: var(--text-color);
-    margin-bottom: 15px;
-    line-height: 1.6;
-    flex-grow: 1; /* للسماح للوصف بأخذ مساحة إضافية */
+    font-size: 1em;
+    color: var(--light-gray-text);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+    flex-grow: 1; /* Allows description to take up available space */
+    /* Ensure uniform height for descriptions */
+    min-height: 3.4em; /* Approx. 3 lines of text */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Restrict to 3 lines */
+    -webkit-box-orient: vertical;
 }
 
 .product-card .price {
-    font-size: 1.3em;
-    font-weight: 800;
+    font-size: 1.6em; /* Slightly larger price for emphasis */
+    font-weight: 900;
     color: var(--primary-color);
-    margin-bottom: 15px;
-    display: block; /* للتأكد من أنه يأخذ سطرًا جديدًا */
+    margin-bottom: var(--spacing-md);
+    display: block; /* Ensures it takes full width */
+    direction: ltr; /* Important for currency display in RTL contexts */
+    text-align: center;
+    flex-shrink: 0; /* Prevents price from shrinking */
 }
 
-.product-card .add-to-cart-btn {
-    display: inline-block;
-    padding: 10px 25px;
+.add-to-cart-btn {
+    display: flex; /* Use flex for icon and text alignment */
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs); /* Space between icon and text */
+    width: calc(100% - (2 * var(--spacing-md))); /* Full width minus card padding */
+    margin: 0 var(--spacing-md) var(--spacing-md); /* Center with bottom margin */
+    padding: 12px 30px;
     background-color: var(--accent-color);
-    color: var(--heading-color);
-    border-radius: 50px;
+    color: var(--white-pure);
+    border-radius: var(--border-radius-lg);
     font-weight: 700;
     transition: all var(--transition-speed);
     text-decoration: none;
-    border: none; /* إذا كان زرًا حقيقيًا */
+    border: none;
     cursor: pointer;
+    font-size: 1.05em;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0; /* Prevents button from shrinking */
 }
 
-.product-card .add-to-cart-btn:hover {
-    background-color: #B29ACC;
-    transform: translateY(-2px);
+.add-to-cart-btn i {
+    font-size: 1em;
 }
 
-/* Responsive adjustments */
+.add-to-cart-btn:hover {
+    background-color: var(--secondary-accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* State for "Added to Cart" button */
+.add-to-cart-btn.added-to-cart {
+    background-color: #4CAF50; /* A nice green color */
+    color: var(--white-pure);
+    cursor: default;
+    opacity: 0.9;
+    pointer-events: none; /* Prevent clicks when added */
+    box-shadow: var(--shadow-sm);
+}
+.add-to-cart-btn.added-to-cart:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* Medium devices (Tablets, 992px and below) */
 @media (max-width: 992px) {
+    .products-hero-section {
+        padding: 80px 0;
+    }
+    .products-hero-content h1 {
+        font-size: 3.2em;
+    }
+    .products-hero-content p {
+        font-size: 1.1em;
+    }
+
     .products-layout {
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: column; /* Stack filters above grid */
+        gap: var(--spacing-md);
     }
     .product-filters {
-        width: 100%;
-        padding: 15px;
+        width: 100%; /* Filters take full width */
+        padding: var(--spacing-md);
+        position: relative; /* Remove sticky behavior */
+        top: 0;
+        z-index: auto;
     }
     .all-products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly smaller cards */
+        gap: var(--spacing-md);
     }
     .product-controls {
-        flex-direction: column;
+        flex-direction: column; /* Stack search and sort */
         align-items: stretch;
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
     }
     .search-bar {
         max-width: 100%;
     }
+    #productSearch {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+    #searchButton {
+        height: calc(100% - 6px);
+    }
+    .sort-by {
+        width: 100%;
+        justify-content: center;
+    }
+    #sortBy {
+        padding: 10px 18px;
+        font-size: 0.95em;
+        padding-right: 40px; /* Adjust for RTL arrow */
+    }
+
+    .product-card h4 {
+        font-size: 1.3em;
+        min-height: 2.6em; /* Maintain consistency */
+    }
+    .product-card p {
+        font-size: 0.95em;
+        min-height: 3.4em; /* Maintain consistency */
+    }
+    .product-card .price {
+        font-size: 1.4em;
+    }
+    .add-to-cart-btn {
+        padding: 10px 25px;
+        font-size: 0.95em;
+    }
 }
 
+/* Small devices (Large Phones, 768px and below) */
 @media (max-width: 768px) {
-    .page-title {
-        font-size: 2.5em;
+    .products-hero-section {
+        padding: 60px 0;
     }
-    .product-card img {
-        height: 180px; /* تعديل الارتفاع في الشاشات الأصغر */
+    .products-hero-content h1 {
+        font-size: 2.8em;
     }
+    .products-hero-content p {
+        font-size: 1em;
+    }
+
+    .section-padding {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .all-products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Allow 2-3 columns on smaller tablets */
+        gap: var(--spacing-md);
+    }
+    /* You might adjust image container aspect ratio slightly for very small screens if needed */
+    /* .product-card .image-container { padding-bottom: 90%; } */
+
     .product-card h4 {
         font-size: 1.2em;
+        min-height: 2.4em;
+    }
+    .product-card p {
+        font-size: 0.95em;
+        min-height: 3em;
+    }
+    .product-card .price {
+        font-size: 1.2em;
+    }
+    .add-to-cart-btn {
+        padding: 9px 20px;
+        font-size: 0.9em;
+    }
+
+    .product-controls {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+    #productSearch {
+        padding: 10px 15px;
+    }
+    #searchButton {
+        height: calc(100% - 4px);
+        font-size: 1em;
+    }
+    .sort-by label {
+        font-size: 0.9em;
+    }
+    #sortBy {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        padding-right: 35px; /* Adjust for RTL arrow */
+        background-position: right 10px center;
+        background-size: 15px;
+    }
+}
+
+/* Extra small devices (Mobile Phones, 480px and below) */
+@media (max-width: 480px) {
+    .products-hero-section {
+        padding: 40px 0;
+    }
+    .products-hero-content h1 {
+        font-size: 2.2em;
+    }
+    .products-hero-content p {
+        font-size: 0.9em;
+    }
+
+    .section-padding {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .product-controls {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm);
+    }
+    .search-bar {
+        flex-direction: column; /* Stack input and button */
+        width: 100%;
+        max-width: none;
+    }
+    #productSearch {
+        border-radius: var(--border-radius-md);
+        margin-bottom: var(--spacing-sm);
+        padding-left: 15px; /* Adjust as button is now separate */
+    }
+    #searchButton {
+        position: relative; /* Remove absolute positioning */
+        transform: none; /* Remove transform */
+        width: 100%;
+        height: auto;
+        border-radius: var(--border-radius-md);
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    .sort-by {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-xs);
+    }
+    .sort-by label {
+        text-align: right;
+    }
+    #sortBy {
+        width: 100%;
+    }
+
+    .product-filters {
+        padding: var(--spacing-sm);
+    }
+    .filter-section h2 {
+        font-size: 1.5em;
+        margin-bottom: var(--spacing-sm);
+    }
+    .category-list li a {
+        font-size: 1em;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    .apply-price-filter {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+
+    .all-products-grid {
+        grid-template-columns: 1fr; /* Single column on very small phones */
+        gap: var(--spacing-md);
+    }
+    .product-card .image-container {
+        padding-bottom: 75%; /* More rectangular shape for smaller screens, fills width */
+    }
+    .product-card h4 {
+        font-size: 1.1em;
+    }
+    .product-card p {
+        font-size: 0.85em;
     }
     .product-card .price {
         font-size: 1.1em;
     }
-}
-
-@media (max-width: 480px) {
-    .page-title {
-        font-size: 2em;
-        margin-bottom: 30px;
+    .add-to-cart-btn {
+        padding: 8px 20px;
+        font-size: 0.9em;
     }
-    .all-products-grid {
-        grid-template-columns: 1fr; /* عمود واحد في الشاشات الصغيرة جداً */
-    }
-    .search-bar {
-        flex-direction: column;
-    }
-    #productSearch {
-        border-radius: var(--border-radius-sm);
-        margin-bottom: 10px;
-    }
-    #searchButton {
-        border-radius: var(--border-radius-sm);
-    }
-}
-/* في مكان مناسب في css/main.css أو css/products.css */
-
-.btn-add-to-cart.added-to-cart {
-    background-color: #4CAF50; /* لون أخضر جميل */
-    color: white; /* نص أبيض */
-    cursor: default; /* لجعل المؤشر لا يشير إلى رابط */
-    opacity: 0.8; /* لتميزه قليلاً */
-    pointer-events: none; /* لمنع النقر عليه مرة أخرى بينما هو في حالة "تمت الإضافة" */
-}
-
-/* يمكنك إضافة بعض الانتقالات لجعل التغيير أكثر سلاسة */
-.btn-add-to-cart {
-    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
