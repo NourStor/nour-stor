@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         subtotalPriceSpan.innerText = `${subtotal.toFixed(2)} جنيه مصري`;
         
-        const shippingCost = 0; 
+        const shippingCost = 50; // Fixed shipping cost for all governorates in Egypt
         const total = subtotal + shippingCost;
         totalPriceSpan.innerText = `${total.toFixed(2)} جنيه مصري`;
         modalTotalPriceSpan.innerText = `${total.toFixed(2)} جنيه مصري`; // تحديث السعر في المودال
@@ -235,10 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         cart.forEach((item, index) => {
             message += `_المنتج ${index + 1}:_\n`;
-            message += `  *الاسم:* ${item.name}\n`;
-            message += `  *الكمية:* ${item.quantity}\n`;
-            message += `  *السعر للوحدة:* ${item.price} جنيه مصري\n`;
-            message += `  *الإجمالي للوحدة:* ${(item.price * item.quantity).toFixed(2)} جنيه مصري\n`;
+            message += `   *الاسم:* ${item.name}\n`;
+            message += `   *الكمية:* ${item.quantity}\n`;
+            message += `   *السعر للوحدة:* ${item.price} جنيه مصري\n`;
+            message += `   *الإجمالي للوحدة:* ${(item.price * item.quantity).toFixed(2)} جنيه مصري\n`;
             message += `\n`;
         });
 

@@ -29,7 +29,7 @@
 
 /* --- Hero Section --- */
 .hero-section {
-    background: url('../images/hero.jpg') no-repeat center center/cover;
+    background: url('../images/hero.png') no-repeat center center/cover;
     color: var(--white);
     text-align: center;
     padding: 120px 0; /* مسافة داخلية أكبر */
@@ -199,11 +199,6 @@
 .category-card:hover::before {
     background-color: rgba(255, 255, 255, 0.3); /* زيادة الشفافية عند التحويم */
 }
-
-/* Background images for categories - تأكد من مسارات هذه الصور */
-.category-1 { background-image: url('../images/WhatsApp Image 2025-07-20 at 06.30.07_de13e288.jpg'); }
-.category-2 { background-image: url('../images/WhatsApp Image 2025-07-20 at 06.30.07_cfa0d152.jpg'); }
-.category-3 { background-image: url('../images/WhatsApp Image 2025-07-20 at 06.30.06_e2452050.jpg'); }
 
 
 .category-overlay {
